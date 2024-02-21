@@ -1,0 +1,124 @@
+.main-head-container {
+    align-items: center;
+    background-color: #fff8f6;
+    display: flex;
+    height: 5vh;
+    justify-content: space-between;
+    width: 100%;
+}
+.main-head-container .logo-list {
+    display: flex;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding-left: 40px;
+}
+.main-head-container .logo-list #logo {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+ }
+.main-head-container .logo-list #name-logo {
+    align-items: center;
+    display: flex;
+    font-family: "Libre Baskerville", serif;
+    font-size: 24px;
+    font-weight: bold;
+    justify-content: center;
+}
+.main-head-container .nav-items .nav-items-list{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding-right: 40px;
+}
+//HEADER ABOVE
+.card-main-container {
+    align-items: center;
+    background-color: #fff8f6;
+    box-sizing: border-box;
+    display: flex;
+    height: 95vh;
+    justify-content: center;
+    width: 100%;
+}
+.card-main-container .card {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: auto;  
+    border-radius: 15px;
+}
+.card-main-container .card #login-sign{
+    display: flex;
+    justify-content: center;
+    font-family: "Libre Baskerville", serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+.card-main-container .card .loginForm {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 12px;
+    padding: 40px 20px 20px 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin-bottom: 70px;
+}
+.card-main-container .card .loginForm .label {
+    font-family: "Libre Baskerville", serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.card-main-container .card .loginForm .studentInfo {
+    border-color: #C5A399;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px;
+}
+.card-main-container .card form input:nth-child(2) {
+    margin-bottom: 32px;
+}
+.card-main-container .card .loginForm #submitButton {
+    padding: 15px;
+    border: 0;
+    border-radius: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    margin: 48px 35% 28px 35%;
+    background-color: #151515;
+    transition: box-shadow 0.20s ease;
+}
+.card-main-container .card .loginForm #submitButton:hover {
+    padding: 15px;
+    border: 0;
+    border-radius: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    margin: 48px 35% 28px 35%;
+    background-color: #151515;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.card-main-container .card .loginForm #submitButton:active {
+    padding: 15px;
+    border: 0;
+    border-radius: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    margin: 48px 35% 28px 35%;
+    background-color: #151515;
+    box-shadow: #252525 0px 30px 60px -12px inset, #454545 0px 18px 36px -18px inset;
+}
