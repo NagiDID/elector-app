@@ -1,0 +1,29 @@
+.main-head-container {
+    align-items: center;
+    background-color: #fff8f6;
+    display: flex;
+    height: 8vh;
+    justify-content: space-between;
+    width: 100%;
+}
+.main-head-container .logo-list {
+    display: flex;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding-left: 40px;
+}
+.main-head-container .logo-list #logo {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+ }
+.main-head-container .logo-list #name-logo {
+    align-items: center;
+    display: flex;
+    font-family: "Libre Baskerville", serif;
+    font-size: 24px;
+    font-weight: bold;
+    justify-content: center;
+}
