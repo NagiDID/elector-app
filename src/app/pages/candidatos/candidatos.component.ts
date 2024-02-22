@@ -11,20 +11,35 @@ import { CommonModule } from '@angular/common';
 export class CandidatosComponent {
   arrayCandidatos = [
     {
-      avatar: 'Image.jpg',
-      numero: 0o1,
+      avatar: 'https://i.imgur.com/e91TvsF.png',
+      numero: 1,
       nombre: 'Leonardo Claro',
     },
     {
-      avatar: 'Image.jpg',
-      numero: 0o2,
+      avatar: 'https://i.imgur.com/WbmaOOO.png',
+      numero: 2,
       nombre: 'Edinsson Melo',
     },
     {
-      avatar: 'Image.jpg',
-      numero: 0o3,
+      avatar: 'https://i.imgur.com/nvlfW9j.png  ',
+      numero: 3,
       nombre: 'Yosman Ovallos',
-    }
+    },
+    {
+      avatar: 'https://i.imgur.com/nvlfW9j.png  ',
+      numero: 3,
+      nombre: 'Yosman Ovallos',
+    },
+    {
+      avatar: 'https://i.imgur.com/nvlfW9j.png  ',
+      numero: 3,
+      nombre: 'Yosman Ovallos',
+    },
+    {
+      avatar: 'https://i.imgur.com/nvlfW9j.png  ',
+      numero: 3,
+      nombre: 'Yosman Ovallos',
+    },
   ];
 }
 

@@ -4,10 +4,23 @@
         <li id="name-logo">Electo</li>
     </ul>
 </header>
-<section class="cards-main-container">
-    <ul *ngFor="let candidato of arrayCandidatos">
-        <li><img src="{{ candidato.avatar }}" alt="Foto candidato"></li>
-        <li><p>{{ candidato.numero }}</p></li>
-        <li><p>{{ candidato.nombre }}</p></li>
-    </ul>
+<section class="sub-header">
+    <h2 class="sub-title">Clicka sobre el candidato de tu preferencia.</h2>
 </section>
+<div style="background-color: aqua;" style="width: 50%;" style="height: 50%;"></div>
+<section class="cards-main-container">
+    <div class="cards-container">
+        <ul *ngFor="let candidato of arrayCandidatos" class="card">
+            <li class="candidate-pic">
+                <img id="candidate-avatar" src="{{ candidato.avatar }}" alt="Foto candidato">
+            </li>
+            <li>
+                <div class="candidate-info">
+                    <p>0{{ candidato.numero }}</p>
+                    <p>{{ candidato.nombre }}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+    
