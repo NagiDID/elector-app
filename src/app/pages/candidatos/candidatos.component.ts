@@ -24,22 +24,7 @@ export class CandidatosComponent {
       avatar: 'https://i.imgur.com/nvlfW9j.png  ',
       numero: 3,
       nombre: 'Yosman Ovallos',
-    },
-    {
-      avatar: 'https://i.imgur.com/nvlfW9j.png  ',
-      numero: 3,
-      nombre: 'Yosman Ovallos',
-    },
-    {
-      avatar: 'https://i.imgur.com/nvlfW9j.png  ',
-      numero: 3,
-      nombre: 'Yosman Ovallos',
-    },
-    {
-      avatar: 'https://i.imgur.com/nvlfW9j.png  ',
-      numero: 3,
-      nombre: 'Yosman Ovallos',
-    },
+    }
   ];
 }
 
