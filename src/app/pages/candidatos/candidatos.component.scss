@@ -30,7 +30,7 @@
 //SUB-TITLE STYLES
 .sub-header {
     display: flex;
-    height: 12vh;
+    height: 8vh;
     justify-content: center;
     align-items: center;
 }
@@ -46,7 +46,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
+    min-height: 84vh;
     max-height: fit-content;
     width: 100%;
 }
@@ -95,6 +95,12 @@
     justify-content: space-between;
     align-items: center;
 }
+.cards-main-container .cards-container .card .candidate-info p{
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 
 
 
