@@ -13,7 +13,7 @@
         <input type="text" id="studentName" placeholder="Tu nombre" class="studentInfo">
         <label for="ID" class="label">No. de identificación</label>
         <input type="text" id="studentID" placeholder="Número de identificación" class="studentInfo">
-        <input type="button" value="Ir a votar" id="submitButton">
+        <button id="submitButton" (click)="clickHandler($event)">Ir a votar</button>
     </form>
 </div>
 </section>
