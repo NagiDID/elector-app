@@ -1,0 +1,85 @@
+<header class="main-head-container">
+    <ul class="logo-list">
+        <figure id="logo"><img width="40" height="40" src="https://img.icons8.com/ios-filled/50/full-stop.png" alt="ElectoLogo"/></figure>
+        <li id="name-logo">Electo</li>
+    </ul>
+</header>
+<section 
+class="mid-main-container">
+    <section
+    class="sub-candidate-amount">
+        <div 
+        class="candidate-amount">
+            <h2 
+            id="amount-title" 
+            class="card-item">Registro de candidatos</h2>
+            <p 
+            id="amount-number" 
+            class="card-item">Hay {{ candidatos().length }} candidatos registrados</p>
+        </div>
+        <div 
+        class="edit-candidate-info" hidden>
+            <div class="candidate-info">
+                <label for="">Foto del candidato</label>
+                <img src="https://i.imgur.com/e8buxpa.jpeg" alt="default-image">
+                <input type="file">
+            </div>
+            <div class="candidate-info" (change)="addCandidateNumber($event)">
+                <label for="">Número del candidato</label>
+                <input type="text">
+            </div>
+            <div class="candidate-info" (change)="addCandidateName($event)">
+                <label for="">Nombre del candidato</label>
+                <input type="text">
+            </div>
+            <button 
+            id="addCandidate" 
+            (click)="addCandidate($event)">Añadir candidato
+            </button>
+        </div>
+    </section>
+    <div class="sub-cardList-container">
+        <ul 
+        class="candidates-list">
+            <li 
+            *ngFor="let user of candidatos(); index as i" class="list-item">
+                <div 
+                class="candidate-card">
+                    <img 
+                    id="user-avatar"
+                    [src]="user.avatar" 
+                    alt="Avatar-candidato">
+                    <div class="candidate-text-info">
+                        <p>0{{ user.number }}</p>
+                        <p>{{ user.name }}</p>
+                    </div>
+                    <div 
+                    class="buttons-container">
+                        <button 
+                        id="editCandidate"
+                        class="edit-buttons">
+                            <figure 
+                            id="edit-icon">
+                                <img 
+                                src="https://img.icons8.com/material-sharp/24/edit--v1.png" 
+                                alt="edit--v1"/>
+                            </figure>
+                        </button>
+                        <button 
+                        id="deleteCandidate"
+                        class="edit-buttons"
+                        (click)="deleteCandidate(i)">
+                            <figure 
+                            id="trash-icon">
+                                <img 
+                                src="https://img.icons8.com/material-outlined/24/trash--v1.png" 
+                                alt="trash--v1"/>
+                            </figure>
+                        </button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>     
+</section>
+

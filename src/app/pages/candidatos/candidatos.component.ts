@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { EditInfoComponent } from './edit-info/edit-info.component';
 
 @Component({
   selector: 'app-candidatos',

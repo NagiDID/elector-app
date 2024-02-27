@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { CandidatosComponent } from './pages/candidatos/candidatos.component';
 import { LabsComponent } from './pages/Zlabs/labs.component';
 import { ChildComponent } from './pages/Zlabs/child/child.component';
+import { EditInfoComponent } from './pages/candidatos/edit-info/edit-info.component';
 
 export const routes: Routes = [
     {
@@ -21,5 +22,9 @@ export const routes: Routes = [
     {
         path:'child',
         component: ChildComponent,
+    },
+    {
+        path:'edit',
+        component: EditInfoComponent,
     }
 ];
