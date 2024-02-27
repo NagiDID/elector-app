@@ -101,7 +101,7 @@
 }
 .mid-main-container .sub-candidate-amount #addCandidate{ 
     background-color: black;
-    border-radius: 5px;
+    border-radius: 8px;
     border: 0;
     color: white;
     font-family: "Montserrat", sans-serif;
@@ -186,7 +186,71 @@
 }
 
 //---->sub-cardList-container END
-
-
+//editModule
+.mid-main-container .edit-module {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 0px 60px;
+    padding: 20px;
+    width: 405px;
+    border: 0;
+    position: absolute;
+    top: 212px;
+}
+.mid-main-container .edit-module .candidate-info{
+    display: flex;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    gap: 8px;
+}
+.mid-main-container .edit-module .candidate-info img{
+    width: 300px;
+    margin: auto;
+}
+.mid-main-container .edit-module .candidate-info:nth-child(1n+2) input{
+    border-color: #C5A399;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px;
+}
+.mid-main-container .edit-module #saveInfo{ 
+    background-color: black;
+    border-radius: 8px;
+    border: 0;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    width: 200px;
+    margin: auto;
+}
+.mid-main-container .edit-module #closeModule{ 
+    position: absolute;
+    left: 410px;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+}
+.mid-main-container .edit-module #closeModule:hover{ 
+    position: absolute;
+    left: 410px;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(216, 87, 87);
+    border-color: black;
+    border-radius: 5px;
+}
 
 
