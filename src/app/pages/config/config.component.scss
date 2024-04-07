@@ -185,7 +185,7 @@
     display: flex;
     justify-content: center;
     gap: 96px;
-    margin: 5.5rem 0 5.5rem 0;
+    margin: 5.5rem 0 2.369rem 0;
     width: calc(100% - 23.333%);
     box-sizing: border-box;
 }
@@ -193,7 +193,7 @@
 .right-section #container-lista-votantes {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2rem
 }
 .right-section #container-lista-votantes .subtitle{
     color: #003A52;
@@ -207,7 +207,7 @@
     height: max-content;
     justify-content: space-between;
     list-style: none;
-    margin: 0;
+    margin: 0 0 8px 0 ;
     padding: 0;
     width: 696px;
 }
@@ -262,8 +262,9 @@
 .right-section #container-lista-candidatos {
     display: flex;
     flex-direction: column;
+    gap: 24px;
 }
-.right-section #container-lista-candidatos .subtitle{
+.right-section #container-lista-candidatos .oneListContainer .subtitle{
     color: #003A52;
     font-family: "Montserrat", sans-serif;
     font-size: 1.5rem;
@@ -283,13 +284,13 @@
     font-size: 1rem;
     font-weight: 400;
 }
-.right-section #container-lista-candidatos .subtitle-lvl3 a{
+.right-section #container-lista-candidatos .oneListContainer .subtitle-lvl3 a{
     font-family: "Montserrat", sans-serif;
     font-size: 1rem;
     font-weight: 400;
     color: #003A52;
 }
-.right-section #container-lista-candidatos .listaTarjetones{
+.right-section #container-lista-candidatos .oneListContainer .listaTarjetones{
     display: flex;
     list-style: none;
     margin: 0;
@@ -297,10 +298,9 @@
     gap: 24px;
     width: max-content;
 }
-
 // CARD - Tarjetón
 
-.right-section #container-lista-candidatos .listaTarjetones .list-item .tarjetonCard{
+.right-section #container-lista-candidatos .oneListContainer .listaTarjetones .list-item .tarjetonCard{
     display: grid;
     grid-template-rows: repeat(3, auto);
     width: fit-content;
@@ -309,7 +309,7 @@
     border-radius: 10px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
-.right-section #container-lista-candidatos .listaTarjetones .list-item .tarjetonCard .cardNumber{
+.right-section #container-lista-candidatos .oneListContainer .listaTarjetones .list-item .tarjetonCard .cardNumber{
     align-items: center;
     background-color: white;
     border-radius: 24px;
@@ -318,14 +318,14 @@
     padding: 10.5px 16.8595px;
     width: fit-content;
 }
-.right-section #container-lista-candidatos .listaTarjetones .list-item .tarjetonCard .cardNumber span{
+.right-section #container-lista-candidatos .oneListContainer .listaTarjetones .list-item .tarjetonCard .cardNumber span{
     color: #003A52;
     font-family: "Montserrat", sans-serif;
     font-size: 1rem;
     font-weight: bold;
     width: fit-content;
 }
-.right-section #container-lista-candidatos .listaTarjetones .list-item .tarjetonCard p:nth-child(2){
+.right-section #container-lista-candidatos .oneListContainer .listaTarjetones .list-item .tarjetonCard p:nth-child(2){
     color: #003A52;
     font-family: "Montserrat", sans-serif;
     font-size: 1rem;
@@ -333,7 +333,7 @@
     margin: 0 0 8px 0;
     width: fit-content;
 }
-.right-section #container-lista-candidatos .listaTarjetones .list-item .tarjetonCard p:nth-child(3){
+.right-section #container-lista-candidatos .oneListContainer .listaTarjetones .list-item .tarjetonCard p:nth-child(3){
     color: #003A52;
     font-family: "Montserrat", sans-serif;
     font-size: 0.75rem;
@@ -341,7 +341,93 @@
     margin: 0;
     width: fit-content;
 }
-
 // CARD - Tarjetón END
 
 // CARD - Candidatos
+.right-section #container-lista-candidatos .secondListContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.right-section #container-lista-candidatos .secondListContainer .list-candidatos {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    align-items:start;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 629.09px;
+    overflow-y: scroll;
+}
+.right-section #container-lista-candidatos .secondListContainer .list-candidatos .list-item{
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    position: relative;
+}
+.right-section #container-lista-candidatos .secondListContainer .list-candidatos .list-item img{
+    width: calc((551.11px/2) - 24px);
+    height: calc((551.11px/2) - 24px);
+    border-radius: 10px;
+}
+.right-section #container-lista-candidatos .secondListContainer .list-candidatos .list-item .candidate-info{
+    display: flex;
+    justify-content: space-between;
+    color: #003A52;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.right-section #container-lista-candidatos .secondListContainer .list-candidatos .list-item .addCard{
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    height:calc(251.55px - 50px);
+    width: calc(251.55px - 50px);
+    background-color: #E3F3FC;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.right-section #container-lista-candidatos .secondListContainer .list-candidatos .list-item .addCard figure{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: right;
+    align-items: end;
+}
+.right-section #container-lista-candidatos .secondListContainer .list-candidatos .list-item .addCard figure svg{
+   width: 27,5px;
+   height: 27.5px;
+   padding: 8px;
+   border-radius: 50%;
+   background-color: white;
+}
+.right-section #container-lista-candidatos .secondListContainer .list-candidatos .list-item .addCard p{
+    color: #003A52;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+    width: fit-content;
+}
+.right-section #container-lista-candidatos .secondListContainer .list-candidatos .list-item .buttons-container{
+    display: flex;
+    position: absolute;
+    gap: 8px;
+    top: 8px;
+    left: 8px;
+}
+.right-section #container-lista-candidatos .secondListContainer .list-candidatos .list-item .buttons-container button{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-width: 0;
+    border-radius: 5px;
+}
+.right-section #container-lista-candidatos .secondListContainer .list-candidatos .list-item .buttons-container svg{
+    width: 15px;
+    height: 15px;
+    fill: #003A52;
+}
