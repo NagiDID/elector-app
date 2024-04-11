@@ -1,7 +1,8 @@
-import { Component, input, signal, ɵPendingTasks} from '@angular/core';
+import { Component, input, OnInit, signal, ɵPendingTasks} from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { votantes, tarjeton, candidate } from '../../models/tags.model';
 import * as XLSX from 'xlsx'
+
 
 import { elementAt, findIndex } from 'rxjs';
 
@@ -12,9 +13,15 @@ import { elementAt, findIndex } from 'rxjs';
   templateUrl: './config.component.html',
   styleUrl: './config.component.scss'
 })
-export class ConfigComponent {
+export class ConfigComponent implements OnInit {
 
-  
+  ngOnInit() {
+    const storedData = localStorage.getItem('votantesData');
+    if (storedData) {
+      const votantesData = JSON.parse(storedData);
+      this.votantes.set(votantesData);
+    }
+  }
 
   tarjeton= signal<tarjeton[]> ([
   ]); 
@@ -132,22 +139,22 @@ export class ConfigComponent {
   votantes = signal<votantes[]>([
   ]);
 
-  readExcel(event:any) {
-    this.votantes.update(() => []);
-    console.log (this.votantes())
-
+  readExcel(event: any) {
     let file = event.target.files[0];
     let fileReader = new FileReader();
-    fileReader.readAsArrayBuffer(file)
+    fileReader.readAsArrayBuffer(file);
     fileReader.onload = (event) => {
       const data = new Uint8Array(fileReader.result as ArrayBuffer);
-      const workbook = XLSX.read(data, {type: 'array'});
+      const workbook = XLSX.read(data, { type: 'array' });
       const sheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[sheetName];
       const headers = ['name', 'group', 'id', 'code'];
-      const excelData : votantes[] = XLSX.utils.sheet_to_json(worksheet, { header: headers })
-
+      const excelData: votantes[] = XLSX.utils.sheet_to_json(worksheet, { header: headers });
+  
       this.votantes.set(excelData);
+  
+      // Guardar en Local Storage
+      localStorage.setItem('votantesData', JSON.stringify(excelData));
     }
   }
 }   
