@@ -7,6 +7,7 @@ import { LabsComponent } from './pages/Zlabs/labs.component';
 import { ChildComponent } from './pages/Zlabs/child/child.component';
 import { EditInfoComponent } from './pages/candidatos/edit-info/edit-info.component';
 import { ConfigComponent } from './pages/config/config.component';
+import * as XLSX from 'xlsx'
 
 @Component({
   selector: 'app-root',
