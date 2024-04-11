@@ -1,3 +1,5 @@
+import { signal } from "@angular/core"
+
 export interface Task {
     id:number,
     title:string,
@@ -15,7 +17,6 @@ export interface votantes {
     code:number
 }
 export interface tarjeton {
-    position:number,
     name:string,
-    amountOfCandidates:number
 }
+

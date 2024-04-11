@@ -17,21 +17,6 @@ export class ConfigComponent {
   
 
   tarjeton= signal<tarjeton[]> ([
-    {
-      position : 1,
-      name: 'Personero',
-      amountOfCandidates: 4
-    },
-    {
-      position : 1,
-      name: 'Personero',
-      amountOfCandidates: 4
-    },
-    {
-      position : 1,
-      name: 'Personero',
-      amountOfCandidates: 4
-    }
   ]); 
 
   candidates = signal <candidate[]>([
@@ -148,7 +133,8 @@ export class ConfigComponent {
   ]);
 
   readExcel(event:any) {
-    this.votantes.set([]);
+    this.votantes.update(() => []);
+    console.log (this.votantes())
 
     let file = event.target.files[0];
     let fileReader = new FileReader();
@@ -160,8 +146,6 @@ export class ConfigComponent {
       const worksheet = workbook.Sheets[sheetName];
       const headers = ['name', 'group', 'id', 'code'];
       const excelData : votantes[] = XLSX.utils.sheet_to_json(worksheet, { header: headers })
-
-      localStorage.setItem('excelData', JSON.stringify(excelData));
 
       this.votantes.set(excelData);
     }

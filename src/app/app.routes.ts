@@ -1,21 +1,11 @@
 import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
-import { CandidatosComponent } from './pages/candidatos/candidatos.component';
 import { LabsComponent } from './pages/Zlabs/labs.component';
 import { ChildComponent } from './pages/Zlabs/child/child.component';
-import { EditInfoComponent } from './pages/candidatos/edit-info/edit-info.component';
 import { ConfigComponent } from './pages/config/config.component';
+import { TarjetonEditComponent } from './pages/config/tarjeton-edit/tarjeton-edit.component';
 
 export const routes: Routes = [
-    {
-        path: '',
-        component: LoginComponent
-    },
-    {
-        path:'candidatos',
-        component: CandidatosComponent
-    },
     {
         path:'labs',
         component: LabsComponent,
@@ -25,11 +15,11 @@ export const routes: Routes = [
         component: ChildComponent,
     },
     {
-        path:'edit',
-        component: EditInfoComponent,
-    },
-    {
         path:'config',
         component: ConfigComponent,
+    },
+    {
+        path:'editTarjetones',
+        component: TarjetonEditComponent,
     }
 ];

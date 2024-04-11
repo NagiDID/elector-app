@@ -82,7 +82,7 @@
             <ul class="listCont-item" id="main-list">
                 <li>
                     <ul class="child-list" id="listaNombre">
-                        <li class="list-title">{{votantes().at(0)?.name}}</li>
+                        <li class="list-title">Nombre</li>
                         <li 
                         *ngFor="let user of votantes() | slice:1 ; index as i" class="list-item">
                             <p> {{user.name}} </p>
@@ -93,7 +93,7 @@
                     <ul class="child-list" id="listaGrupo">
                         <li 
                         class="list-title"
-                        [style]="">{{votantes().at(0)?.group}}</li>
+                        [style]="">Grupo</li>
                         <li 
                         *ngFor="let user of votantes() | slice:1 ; index as i" class="list-item">
                             <p> {{user.group}} </p>
@@ -102,7 +102,7 @@
                 </li>
                 <li>
                     <ul class="child-list" id="listaDocumento">
-                        <li class="list-title">{{votantes().at(0)?.id}}</li>
+                        <li class="list-title">Documento</li>
                         <li 
                         *ngFor="let user of votantes() | slice:1 ; index as i" class="list-item">
                             <p> {{user.id}} </p>
@@ -111,7 +111,7 @@
                 </li>
                 <li>
                     <ul class="child-list" id="listaCodigo">
-                        <li class="list-title">{{votantes().at(0)?.code}}</li>
+                        <li class="list-title">Código</li>
                         <li 
                         *ngFor="let user of votantes() | slice:1 ; index as i" class="list-item">
                             <p> {{user.code}} </p>
@@ -127,9 +127,9 @@
             <ul class="list">
                 <li
                 *ngFor="let card of tarjeton(); index as i" class="tarjetonCard">
-                    <p class="cardinfo" id="cardPosition">{{ card.position }}</p>
+                    <p class="cardinfo" id="cardPosition">1</p>
                     <p class="cardinfo" id="cardName">{{ card.name }}</p>
-                    <p class="cardinfo" id="cardAmount">{{ card.amountOfCandidates }} candidatos registrados</p>
+                    <p class="cardinfo" id="cardAmount"> candidatos registrados</p>
                 </li>
             </ul>
                 <div class="listCont-item" id="title-candidates">
@@ -172,36 +172,6 @@
         </div>
     </section>
     <div class="addCandidate-form" [style]="displayType()">
-        <dialog class="edit-module">
-                <div class="candidate-info">
-                    <label for="">Foto del candidato</label>
-                    <img src="https://i.imgur.com/e8buxpa.jpeg" alt="default-image">
-                    <input type="file">
-                </div>
-                <div class="candidate-info">
-                    <label for="">Nombre del candidato</label>
-                    <input 
-                    id="nameInput"
-                    type="text" 
-                    placeholder="p.ej: María Caicedo"
-                    (change)="addCandidateName($event)"
-                    value="">
-                </div>
-                <div class="candidate-info">
-                    <label for="">Número del candidato</label>
-                    <input 
-                    id="numberInput"
-                    type="text" 
-                    placeholder="p.ej: 1, 2, 3..." 
-                    (change)="addCandidateNumber($event)">
-                </div>
-                <button 
-                id="addCandidate"
-                (click)="addCandidate($event)">Añadir candidato
-                </button>
-        </dialog>
-    </div>
-    <div class="editTarjeton-form" [style]="displayType()">
         <dialog class="edit-module">
                 <div class="candidate-info">
                     <label for="">Foto del candidato</label>

@@ -1,0 +1,143 @@
+*{outline: none;}
+
+body{
+  background-color: #607d8b;
+}
+
+.container {
+  .backButton {
+    position: absolute;
+  }
+}
+
+.container {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    justify-content: center;
+    align-items: start;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+  
+    .form-section{
+      display     : flex; 
+      width       : 500px;  
+      margin-top  : 8%;
+      margin-left : auto;
+      margin-right: auto;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      border-radius: 10px;
+    
+      
+      input{
+         flex                             : 1;
+         padding                          : 0px 20px;
+         font-size                        : 1.1em;
+         border: none;
+         border-radius: 10px;
+    
+      }
+      
+      button{
+        padding-right                     : 10px;
+        cursor                            : pointer; 
+        cursor                            : hand;
+        border: none;
+        background-color: white;
+        border-radius: 10px;
+        
+        p{
+          padding         : 12px 24px;
+          margin: 5px 0;
+          
+          font-size       : 0.9em;
+          text-transform  : uppercase;
+          font-weight     : 400 ;
+          color           : white;
+          background-color: #003A52;
+          border-radius: 10px;
+          
+          &:hover{
+            background-color: #166d92;
+            transition: 0.25s ease;
+          }
+          
+        }
+      }
+    }
+
+  }
+
+  .container .list-section {
+    width: 100vw;
+    height: 100%;
+
+    .list {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      
+    }
+
+    .tarjetonCard {
+      display: grid;
+      grid-template-rows: auto 1fr auto; /* Define tres filas: la altura de la primera y última se ajusta al contenido, y la del medio toma el espacio restante */
+      gap: 10px; /* Espacio entre los elementos de la grilla */
+      padding: 20px; /* Padding alrededor del contenido de la tarjeta */
+      border: none; /* Borde de la tarjeta */
+      border-radius: 8px; /* Bordes redondeados */
+      background-color: #E3F3FC; /* Color de fondo */
+      grid-template-areas: 
+        "position"
+        "name"
+        "amount"; /* Define áreas de grilla para posicionamiento */
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        color: #003A52;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    
+    .cardinfo:nth-child(1) { /* Asume que el primer .cardinfo es el número de posición */
+      grid-area: position; /* Asigna al área 'position' */
+      justify-self: start; /* Alinea al final (derecha) */
+      background-color: white;
+      background-color: white;
+      padding: 10px 16px;
+      border-radius: 50%;
+      width: fit-content;
+      height: fit-content;
+      color: #003A52;
+      font-family: "Montserrat", sans-serif;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    
+    .cardinfo:nth-child(2) { /* Asume que el segundo .cardinfo es el nombre */
+      grid-area: name; /* Asigna al área 'name' */
+      justify-self: start; /* Alinea al inicio (izquierda) */
+      align-self: end; /* Alinea al final de su fila */
+    }
+    
+    .cardinfo:nth-child(3) { /* Asume que el tercer .cardinfo es el número de candidatos */
+      grid-area: amount; /* Asigna al área 'amount' */
+      justify-self: center; /* Centra horizontalmente */
+      align-self: end; /* Alinea al final de su fila */
+    }
+
+    button {
+      width: 30px;
+    height: 30px;
+    background-color: white;
+    border-width: 0;
+    border-radius: 5px;
+    }
+
+    button svg{
+      width: 15px;
+    height: 15px;
+    fill: #003A52;
+    }
+
+  }
