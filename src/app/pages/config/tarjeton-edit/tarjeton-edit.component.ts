@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { tarjeton } from '../../../models/tags.model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-tarjeton-edit',
@@ -11,7 +12,17 @@ import { tarjeton } from '../../../models/tags.model';
 })
 export class TarjetonEditComponent {
 
+  constructor(private location: Location) { }
+
   tarjetones = signal<tarjeton[]>([])
+
+  ngOnInit(): void {
+    // Cargar tarjetones de localStorage al iniciar
+    const storedTarjetones = localStorage.getItem('tarjetones');
+    if (storedTarjetones) {
+      this.tarjetones.set(JSON.parse(storedTarjetones));
+    }
+  }
 
   addName(event: Event) {
     let nameinputed = event.target as HTMLInputElement;
@@ -23,13 +34,27 @@ export class TarjetonEditComponent {
   addTarjeton(event: Event) {
     const newTarjeton = {
       name: this.newName(),
-    }
-    this.tarjetones.update((tarjetones) => [...tarjetones, newTarjeton]);
+    };
+    this.tarjetones.update((tarjetones) => {
+      const updatedTarjetones = [...tarjetones, newTarjeton];
+      // Guardar en localStorage
+      localStorage.setItem('tarjetones', JSON.stringify(updatedTarjetones));
+      return updatedTarjetones;
+    });
     const inputInQuestion = document.getElementById('nameInput') as HTMLInputElement;
     inputInQuestion.value = ''
   }
 
   deleteTarjeton(index: number) {
-    this.tarjetones.update((tarjetones) => tarjetones.filter((tarjetones, position) => position !== index))
+    this.tarjetones.update((tarjetones) => {
+      const updatedTarjetones = tarjetones.filter((_, position) => position !== index);
+      // Actualizar localStorage
+      localStorage.setItem('tarjetones', JSON.stringify(updatedTarjetones));
+      return updatedTarjetones;
+    });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

@@ -1,15 +1,16 @@
-import { Component, input, OnInit, signal, ɵPendingTasks} from '@angular/core';
+import { Component, input, OnInit, signal, ɵPendingTasks } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { votantes, tarjeton, candidate } from '../../models/tags.model';
 import * as XLSX from 'xlsx'
 
 
 import { elementAt, findIndex } from 'rxjs';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-config',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './config.component.html',
   styleUrl: './config.component.scss'
 })
@@ -20,19 +21,23 @@ export class ConfigComponent implements OnInit {
     if (storedData) {
       const votantesData = JSON.parse(storedData);
       this.votantes.set(votantesData);
+    }
 
-      
+    // Cargar tarjetones desde localStorage
+    const storedTarjetones = localStorage.getItem('tarjetones');
+    if (storedTarjetones) {
+      this.tarjeton.set(JSON.parse(storedTarjetones));
     }
   }
 
-  tarjeton= signal<tarjeton[]> ([
-  ]); 
-
-  candidates = signal <candidate[]>([
+  tarjeton = signal<tarjeton[]>([
   ]);
 
-  
-  numeroMesa = signal<number> (1);
+  candidates = signal<candidate[]>([
+  ]);
+
+
+  numeroMesa = signal<number>(1);
 
   loadVotantesPorMesa() {
     const currentData = JSON.parse(localStorage.getItem('votantesPorMesa') || '{}');
@@ -48,7 +53,7 @@ export class ConfigComponent implements OnInit {
     this.numeroMesa.set(Number(newValue));
     this.loadVotantesPorMesa(); // Cargar votantes para la nueva mesa
   }
-  
+
   decreaseTableNumber(event: Event) {
     let newValue = this.numeroMesa() - 1;
     this.numeroMesa.set(Number(newValue));
@@ -58,14 +63,14 @@ export class ConfigComponent implements OnInit {
   displayType = signal<string>('display: none');
   displayTypeEditModule = signal<string>('display: none');
 
-  popUpAddEditModule(event:Event) {
+  popUpAddEditModule(event: Event) {
     const stateOn = 'display: flex;';
-    this.displayTypeEditModule.set (stateOn);
+    this.displayTypeEditModule.set(stateOn);
   }
 
-  popUpAddModule(event:Event) {
+  popUpAddModule(event: Event) {
     const stateOn = 'display: flex;';
-    this.displayType.set (stateOn);
+    this.displayType.set(stateOn);
   }
 
   numeroCandidato = signal<number>(1);
@@ -73,53 +78,53 @@ export class ConfigComponent implements OnInit {
 
   addCandidateNumber(event: Event) {
     const inputNumber = event.target as HTMLInputElement;
-    this.numeroCandidato.set (parseInt(inputNumber.value));
+    this.numeroCandidato.set(parseInt(inputNumber.value));
   }
 
   inputValue = signal<string>('')
 
   addCandidateName(event: Event) {
     const inputName = event.target as HTMLInputElement;
-    this.nombreCandidato.set (inputName.value)
+    this.nombreCandidato.set(inputName.value)
   }
 
-  addCandidate (event:Event) {
+  addCandidate(event: Event) {
     const newCandidate = {
       avatar: 'https://i.imgur.com/e8buxpa.jpeg',
       number: this.numeroCandidato(),
       name: this.nombreCandidato(),
     }
-    this.candidates.update ((candidates) => [...candidates, newCandidate]);
+    this.candidates.update((candidates) => [...candidates, newCandidate]);
     const stateOff = 'display: none;'
-    this.displayType.set (stateOff);
+    this.displayType.set(stateOff);
     const inputInQuestion = document.getElementById('nameInput') as HTMLInputElement;
     inputInQuestion.value = ''
     const scndInputInQuestion = document.getElementById('numberInput') as HTMLInputElement;
     scndInputInQuestion.value = ''
   }
-  
-  deleteCandidate (index:number) {
-    this.candidates.update ((candidates) => candidates.filter((candidates, position) => position !== index))
+
+  deleteCandidate(index: number) {
+    this.candidates.update((candidates) => candidates.filter((candidates, position) => position !== index))
   }
 
-  currentName =signal<string>('Default')
-  currentNumber =signal<number>(0)
+  currentName = signal<string>('Default')
+  currentNumber = signal<number>(0)
   indexReceived = signal<number>(0)
 
-  editCandidate(event:Event, index:number) {
-    this.indexReceived.set (index);
+  editCandidate(event: Event, index: number) {
+    this.indexReceived.set(index);
     this.currentName.set(String(this.candidates().at(index)?.name))
     this.currentNumber.set(Number(this.candidates().at(index)?.number))
   }
 
-  changeName (event:Event): void {
+  changeName(event: Event): void {
     const inputName = event.target as HTMLInputElement;
     this.newName.set(inputName.value);
   }
 
   inputNameFromHtml = signal<string>('');
 
-  changeNumber (event:Event) {
+  changeNumber(event: Event) {
     const inputNumber = event.target as HTMLInputElement;
     this.newNumber.set(parseInt(inputNumber.value));
   }
@@ -127,11 +132,11 @@ export class ConfigComponent implements OnInit {
   newName = signal<string>('default');
   newNumber = signal<number>(1);
 
-  editCandidateinfo (event:Event) {
+  editCandidateinfo(event: Event) {
     const stateOff = 'display: none;'
-    this.displayTypeEditModule.set (stateOff);
+    this.displayTypeEditModule.set(stateOff);
     this.candidates.update((candidates) => {
-      return  candidates.map((candidate, position) => {
+      return candidates.map((candidate, position) => {
         if (position === this.indexReceived()) {
           return {
             ...candidate,
@@ -163,11 +168,11 @@ export class ConfigComponent implements OnInit {
       const worksheet = workbook.Sheets[sheetName];
       const headers = ['name', 'group', 'id', 'code'];
       const excelData: votantes[] = XLSX.utils.sheet_to_json(worksheet, { header: headers });
-  
+
       // Obtener el objeto actual de votantes por mesa
       const currentData = JSON.parse(localStorage.getItem('votantesPorMesa') || '{}');
       currentData[this.numeroMesa()] = excelData; // Actualizar con la nueva lista de votantes para la mesa actual
-  
+
       // Guardar el objeto modificado en Local Storage
       localStorage.setItem('votantesPorMesa', JSON.stringify(currentData));
       this.votantes.set(excelData); // Establecer la lista de votantes actual en el estado
