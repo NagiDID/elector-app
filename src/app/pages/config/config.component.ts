@@ -20,6 +20,8 @@ export class ConfigComponent implements OnInit {
     if (storedData) {
       const votantesData = JSON.parse(storedData);
       this.votantes.set(votantesData);
+
+      
     }
   }
 
@@ -32,14 +34,25 @@ export class ConfigComponent implements OnInit {
   
   numeroMesa = signal<number> (1);
 
+  loadVotantesPorMesa() {
+    const currentData = JSON.parse(localStorage.getItem('votantesPorMesa') || '{}');
+    if (currentData[this.numeroMesa()]) {
+      this.votantes.set(currentData[this.numeroMesa()]);
+    } else {
+      this.votantes.set([]); // O cualquier estado inicial deseado
+    }
+  }
+
   increaseTableNumber(event: Event) {
     let newValue = this.numeroMesa() + 1;
     this.numeroMesa.set(Number(newValue));
+    this.loadVotantesPorMesa(); // Cargar votantes para la nueva mesa
   }
-
+  
   decreaseTableNumber(event: Event) {
     let newValue = this.numeroMesa() - 1;
     this.numeroMesa.set(Number(newValue));
+    this.loadVotantesPorMesa(); // Cargar votantes para la nueva mesa
   }
 
   displayType = signal<string>('display: none');
@@ -143,7 +156,7 @@ export class ConfigComponent implements OnInit {
     let file = event.target.files[0];
     let fileReader = new FileReader();
     fileReader.readAsArrayBuffer(file);
-    fileReader.onload = (event) => {
+    fileReader.onload = (e) => {
       const data = new Uint8Array(fileReader.result as ArrayBuffer);
       const workbook = XLSX.read(data, { type: 'array' });
       const sheetName = workbook.SheetNames[0];
@@ -151,10 +164,13 @@ export class ConfigComponent implements OnInit {
       const headers = ['name', 'group', 'id', 'code'];
       const excelData: votantes[] = XLSX.utils.sheet_to_json(worksheet, { header: headers });
   
-      this.votantes.set(excelData);
+      // Obtener el objeto actual de votantes por mesa
+      const currentData = JSON.parse(localStorage.getItem('votantesPorMesa') || '{}');
+      currentData[this.numeroMesa()] = excelData; // Actualizar con la nueva lista de votantes para la mesa actual
   
-      // Guardar en Local Storage
-      localStorage.setItem('votantesData', JSON.stringify(excelData));
+      // Guardar el objeto modificado en Local Storage
+      localStorage.setItem('votantesPorMesa', JSON.stringify(currentData));
+      this.votantes.set(excelData); // Establecer la lista de votantes actual en el estado
     }
   }
 }   
