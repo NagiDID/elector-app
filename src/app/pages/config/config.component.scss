@@ -417,6 +417,17 @@
     z-index: 1;
     padding: 0px 12px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    position: relative;
+}
+.right-section #container-lista-candidatos .tarjetonCard .addCandidateTolist { 
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 0;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    border-radius: 8px;
 }
 .right-section #container-lista-candidatos .tarjetonCard p:nth-child(1){
     background-color: white;

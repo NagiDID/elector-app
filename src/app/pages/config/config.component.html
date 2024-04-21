@@ -159,8 +159,8 @@
         <dialog class="edit-module">
             <div class="candidate-info">
                 <label for="">Foto del candidato</label>
-                <img src="https://i.imgur.com/e8buxpa.jpeg" alt="default-image">
-                <input type="file">
+                <img src="{{ avatarCandidato() }}" alt="default-image">
+                <input type="file" (change)="handleFileInput($event)">
             </div>
             <div class="candidate-info">
                 <label for="">Nombre del candidato</label>

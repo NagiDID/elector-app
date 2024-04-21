@@ -36,10 +36,32 @@ export class ConfigComponent implements OnInit {
   candidates = signal<candidate[]>([
   ]);
 
+  
+
+  handleFileInput(event: Event) {
+    const input = event.target as HTMLInputElement;
+  
+    // Verificar si hay archivos seleccionados
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+  
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64String = reader.result as string;
+        this.avatarCandidato.set(base64String);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      console.error("No se seleccionó ningún archivo.");
+    }
+  }
+
+  
 
   numeroMesa = signal<number>(1);
+  numeroTarjetón = signal<number>(0);
 
-  loadVotantesPorMesa() {
+  loadVotantesPorMesa() { 
     const currentData = JSON.parse(localStorage.getItem('votantesPorMesa') || '{}');
     if (currentData[this.numeroMesa()]) {
       this.votantes.set(currentData[this.numeroMesa()]);
@@ -73,6 +95,7 @@ export class ConfigComponent implements OnInit {
     this.displayType.set(stateOn);
   }
 
+  avatarCandidato = signal<string>("")
   numeroCandidato = signal<number>(1);
   nombreCandidato = signal<string>('Default')
 
@@ -90,7 +113,7 @@ export class ConfigComponent implements OnInit {
 
   addCandidate(event: Event) {
     const newCandidate = {
-      avatar: 'https://i.imgur.com/e8buxpa.jpeg',
+      avatar: this.avatarCandidato(),
       number: this.numeroCandidato(),
       name: this.nombreCandidato(),
     }
