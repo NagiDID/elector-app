@@ -265,267 +265,314 @@
     height: 100vh;
     width: 80vw;
     background-color: white;
+
+    #container-lista-votantes {
+        display: grid;
+        align-items: start;
+        justify-content: center;
+        grid-template-rows: 3.5vh 78vh 5vh;
+        width: 40vw;
+
+        #subtitle {
+            color: #003A52;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        #main-list {
+            display: flex;
+            justify-content: space-between;
+            width: 38vw;
+            height: 78vh;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-y: scroll;
+
+            .child-list{
+                display: flex;
+                flex-direction: column;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                .list-title{
+                    color: #003A52;
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    margin: 0;
+                    position: fixed;
+                    background-color: white;
+                    padding-right: 100px;
+                    margin-right: -100px;
+                    z-index: 0;
+                }
+                .list-item{
+                    color: #003A52;
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 1rem;
+                    font-weight: 400;
+                }
+                .list-item:nth-child(2){
+                    margin-top: 16px;
+                }
+            }
+        }
+        #main-list::-webkit-scrollbar { 
+            margin-left: 5px;
+            position: absolute;
+        }
+
+        #container-lista-votantes #main-list {
+            display: flex;
+            justify-content: space-between;
+            width: 38vw;
+            height: 78vh;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow-y: scroll;
+        }
+
+        #uploadXlsx{
+            display: none;
+        }
+
+        .customFileUpload{
+            background-color: transparent;
+            border-radius: 0.5rem;
+            border: 2px solid #003A52;
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+            padding: 12px 20px;
+            width: fit-content;
+            cursor: pointer;
+            color: #003A52;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            width: fit-content;
+        }
+        
+    }
 }   
-.right-section #container-lista-votantes {
-    display: grid;
-    align-items: start;
-    justify-content: center;
-    grid-template-rows: 3.5vh 78vh 5vh;
-    width: 40vw;
-}
-.right-section #container-lista-votantes #subtitle {
-    color: #003A52;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin: 0;
-}
-.right-section #container-lista-votantes #main-list {
-    display: flex;
-    justify-content: space-between;
-    width: 38vw;
-    height: 78vh;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow-y: scroll;
-}
-
-.right-section #container-lista-votantes #main-list::-webkit-scrollbar { 
-    margin-left: 5px;
-    position: absolute;
-}
-.right-section #container-lista-votantes #main-list {
-    display: flex;
-    justify-content: space-between;
-    width: 38vw;
-    height: 78vh;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow-y: scroll;
-}
-.right-section #container-lista-votantes #main-list .child-list{
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.right-section #container-lista-votantes #main-list .child-list .list-title{
-    color: #003A52;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    font-weight: bold;
-    margin: 0;
-    position: fixed;
-    background-color: white;
-    padding-right: 100px;
-    margin-right: -100px;
-    z-index: 0;
-}
-.right-section #container-lista-votantes #main-list .child-list .list-item{
-    color: #003A52;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-}
-.right-section #container-lista-votantes #main-list .child-list .list-item:nth-child(2){
-    margin-top: 16px;
-}
-.right-section #container-lista-votantes #uploadXlsx{
-    display: none;
-}
-.right-section #container-lista-votantes .customFileUpload{
-    background-color: transparent;
-    border-radius: 0.5rem;
-    border: 2px solid #003A52;
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
-    padding: 12px 20px;
-    width: fit-content;
-    cursor: pointer;
-    color: #003A52;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    width: fit-content;
-}
-
 
 
 //Lista de Tarjetones y candidatos
-
+ 
 .right-section #container-lista-candidatos{
     display: grid;
     align-items: start;
     justify-content: center;
-    grid-template-rows: 4vh 25.5vh 6vh 51vh;
+    grid-template-rows: 29.5vh 57vh;
     width: 40vw;
-}
 
-.right-section .list-container .list:nth-child(2) { 
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    width: 35vw;
-}
+    .listaTarjetones{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 29.5vh;
+        gap: 16px;
+        position: relative;
 
+        .subtitle {
+            display: flex;
+            color: #003A52;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 0;
+            align-items: center;
+            gap: 8px;
+            width: 35vw;
+    
+            span { 
+                color: #003A52;
+                font-family: "Montserrat", sans-serif;
+                font-size: 1rem;
+                font-weight: 600;
+                margin: 0;
+            }
+    
+            a { 
+                color: #003A52;
+                font-family: "Montserrat", sans-serif;
+                font-size: 1rem;
+                font-weight: 600;
+                margin: 0;
+            }
+        }
 
-.right-section .list-container .subtitle{
-    display: flex;
-    color: #003A52;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin: 0;
-    align-items: center;
-    gap: 8px;
-    width: 35vw;
-}
-.right-section .list-container .subtitle span{ 
-    color: #003A52;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 0;
-}
-.right-section .list-container .subtitle a{ 
-    color: #003A52;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 0;
-}
-.right-section .list-container #title-candidates{ 
-    display: flex;
-    width: 35vw;
-}
+        .list:nth-child(2) { 
+            align-items: center;
+            display: flex;
+            gap: 16px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 35vw;
+        }
 
+        .addCandidate {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 38px;
+            height: 39px;
+            padding: 0;
+            right: 12px;
+            top: 16px;
+            background-color: white;
+            border: 0;
+            border-radius: 10%;
+            fill: #003A52;
 
-.right-section #container-lista-candidatos .tarjetonCard{
-    list-style: none;
-    display: grid;
-    grid-template-rows: 2fr 1fr 1fr;
-    background-color: #E3F3FC;
-    border-radius: 5px;
-    width: 10vw;
-    z-index: 1;
-    padding: 0px 12px;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    position: relative;
+            svg{
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .tarjetonCard{
+            list-style: none;
+            display: grid;
+            grid-template-rows: 2fr 1fr 1fr;
+            background-color: #E3F3FC;
+            border-radius: 5px;
+            width: 10vw;
+            z-index: 1;
+            padding: 0px 12px;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+            position: relative;
+            cursor: pointer;
+
+            p:nth-child(1){
+                background-color: white;
+                padding: 10px 16px;
+                border-radius: 50%;
+                width: fit-content;
+                height: fit-content;
+                color: #003A52;
+                font-family: "Montserrat", sans-serif;
+                font-size: 1rem;
+                font-weight: bold;
+            }
+
+            p:nth-child(2){
+                color: #003A52;
+                font-family: "Montserrat", sans-serif;
+                font-size: 1rem;
+                font-weight: bold;
+            }
+
+            p:nth-child(3){
+                color: #003A52;
+                font-family: "Montserrat", sans-serif;
+                font-size: 0.75rem;
+                font-weight: 600;
+            }
+        }
+
+    }
+
+    .listasCandidatos {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: calc(57vh - 16px);
+        gap: 16px;
+
+        .subtitle {
+            display: flex;
+            color: #003A52;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 0;
+            align-items: center;
+            gap: 8px;
+            width: 35vw;
+            background-color: white;
+            padding: 0 0 16px 0;
+        }
+
+        .listaCandidatos {
+            align-items: start;
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(2, 17.5vw);
+            height: calc(51vh - 16px);
+            justify-content: center;
+            list-style: none;
+            margin: -16px;
+            overflow-y: scroll;
+            padding: 16px;
+            width: 35vw;
+        }
+        .listaCandidatos::-webkit-scrollbar { 
+            display: none;
+        }
+
+        .candidateCard{
+            list-style: none;
+            display: grid;
+            grid-template-rows: repeat(2, auto);
+            background-color: #E3F3FC;
+            border-radius: 15px;
+            width: fit-content;
+            height: fit-content;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+            position: relative;
+            padding: 12px 12px;
+            padding-bottom: 0;
+            justify-self: center;
+
+            .candidateAvatar{
+                width: 15vw;
+                border-radius: 8px;
+            }
+
+            .candidate-text-info{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: #003A52;
+                font-family: "Montserrat", sans-serif;
+                font-size: 1rem;
+                font-weight: bold;
+            }
+
+            .buttons-container{
+                display: flex;
+                position: absolute;
+                gap: 8px;
+                top: 24px;
+                left: 24px;
+
+                button {
+                    width: 30px;
+                    height: 30px;
+                    background-color: white;
+                    border-width: 0;
+                    border-radius: 5px;
+
+                    svg{
+                        width: 15px;
+                        height: 15px;
+                        fill: #003A52;
+                    }
+                }
+
+            }
+        }
+    }
 }
-.right-section #container-lista-candidatos .tarjetonCard .addCandidateTolist { 
-    width: 40px;
-    height: 40px;
-    background-color: white;
-    border: 0;
-    position: absolute;
-    right: 8px;
-    top: 8px;
-    border-radius: 8px;
-}
-.right-section #container-lista-candidatos .tarjetonCard p:nth-child(1){
-    background-color: white;
-    padding: 10px 16px;
-    border-radius: 50%;
-    width: fit-content;
-    height: fit-content;
-    color: #003A52;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    font-weight: bold;
-}
-.right-section #container-lista-candidatos .tarjetonCard p:nth-child(2){
-    color: #003A52;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    font-weight: bold;
-}
-.right-section #container-lista-candidatos .tarjetonCard p:nth-child(3){
-    color: #003A52;
-    font-family: "Montserrat", sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-
-.right-section .list-container #candidate-list { 
-    margin: -16px;
-    padding: 16px;
-    display: grid;
-    justify-content: start;
-    grid-template-columns: repeat(2, auto);
-    align-items: start;
-    gap: 16px;
-    width: 35vw;
-    height: calc(51vh - 16px);
-    list-style: none;
-    overflow-y: scroll;
-}
-.right-section .list-container .list::-webkit-scrollbar { 
-    display: none;
-}
-
-
-.right-section #container-lista-candidatos .candidateCard{
-    list-style: none;
-    display: grid;
-    grid-template-rows: repeat(2, auto);
-    background-color: #E3F3FC;
-    border-radius: 15px;
-    width: fit-content;
-    height: fit-content;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    position: relative;
-    padding: 12px 12px;
-    padding-bottom: 0;
-}
-.right-section #container-lista-candidatos .candidateCard .candidateAvatar{
-    width: 15vw;
-    border-radius: 8px;
-}
-.right-section #container-lista-candidatos .candidateCard .candidate-text-info{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #003A52;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    font-weight: bold;
-}
-.right-section #container-lista-candidatos .candidateCard .buttons-container{
-    display: flex;
-    position: absolute;
-    gap: 8px;
-    top: 24px;
-    left: 24px;
-}
-.right-section #container-lista-candidatos .candidateCard .buttons-container button{
-    width: 30px;
-    height: 30px;
-    background-color: white;
-    border-width: 0;
-    border-radius: 5px;
-}
-.right-section #container-lista-candidatos .candidateCard .buttons-container svg{
-    width: 15px;
-    height: 15px;
-    fill: #003A52;
-}
-
-
-
-
-
-
-
-
-
 
 
 .container .addCandidate-form {
@@ -537,6 +584,7 @@
     background-color: rgba(60, 64, 67, 0.5);
     z-index: 2;    
 }
+
 .container .addCandidate-form .edit-module {
     display: flex;
     flex-direction: column;
@@ -545,6 +593,7 @@
     border-radius: 5px;
     padding: 20px 30px;
 }
+
 .container .addCandidate-form .edit-module .candidate-info:nth-child(1){
     display: flex;
     flex-direction: column;
@@ -553,10 +602,12 @@
     font-size: 1rem;
     font-weight: bold;
 }
+
 .container .addCandidate-form .edit-module .candidate-info:nth-child(1) img{
     width: 320px;
     height: 320px;
 }
+
 .container .addCandidate-form .edit-module .candidate-info:nth-child(2), .candidate-info:nth-child(3){
     display: flex;
     flex-direction: column;
@@ -565,6 +616,7 @@
     font-size: 1rem;
     font-weight: 600;
 }
+
 .container .addCandidate-form .edit-module .candidate-info:nth-child(2) input, .candidate-info:nth-child(3) input{
     width: calc(100% - 4px);
     background-color: transparent;
@@ -605,6 +657,7 @@
     vertical-align: baseline;
     width: auto;
 }
+
 .container .addCandidate-form .edit-module button:hover{
     background-color: #0a5b7e;
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
