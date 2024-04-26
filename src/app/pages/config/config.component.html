@@ -25,28 +25,24 @@
         </div>
         <div class="left-section-item" id="toggle-info">
             <h2 class="subtitle">Datos solicitados</h2>
-            <ul class="list">
+            <ol class="list">
                 <li class="list-item">
                     <label class="toggle-label">Documento</label>
-                    <input class="toggle-input" type="checkbox" id="switchA">
-                    <label class="switch-label" for="switchA">Toggle</label>
+                    <input class="toggle-input" type="checkbox" id="switchA" (change)="activeOrNotDoc($event)" [defaultChecked]="docCheckedOrNot()">
                 </li>
                 <li class="list-item">
                     <label class="toggle-label">Nombre</label>
-                    <input class="toggle-input" type="checkbox" id="switchB">
-                    <label class="switch-label" for="switchB">Toggle</label>
+                    <input class="toggle-input" type="checkbox" id="switchB" (change)="activeOrNotName($event)" [defaultChecked]="nameCheckedOrNot()">
                 </li>
                 <li class="list-item">
                     <label class="toggle-label">Código</label>
-                    <input class="toggle-input" type="checkbox" id="switchC">
-                    <label class="switch-label" for="switchC">Toggle</label>
+                    <input class="toggle-input" type="checkbox" id="switchC" (change)="activeOrNotCode($event)" [defaultChecked]="codeCheckedOrNot()">
                 </li>
                 <li class="list-item">
                     <label class="toggle-label">Grupo</label>
-                    <input class="toggle-input" type="checkbox" id="switchD">
-                    <label class="switch-label" for="switchD">Toggle</label>
+                    <input class="toggle-input" type="checkbox" id="switchD" (change)="activeOrNotGroup($event)" [defaultChecked]="groupCheckedOrNot()">
                 </li>
-            </ul>
+            </ol>
         </div>
         <section class="edit-candidate-form" [style]="displayTypeEditModule()">
             <div class="candidate-info">
