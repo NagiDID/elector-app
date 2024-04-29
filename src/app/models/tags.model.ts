@@ -20,3 +20,11 @@ export interface tarjeton {
     name:string,
 }
 
+export interface displayMode {
+    [key: string]: boolean;
+    group: boolean;
+    document: boolean;
+    name: boolean;
+    code: boolean;
+}
+

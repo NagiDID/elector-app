@@ -1,12 +1,8 @@
 import { Component, input, OnInit, signal, ɵPendingTasks } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
-import { votantes, tarjeton, candidate } from '../../models/tags.model';
+import { votantes, tarjeton, candidate, displayMode } from '../../models/tags.model';
 import * as XLSX from 'xlsx'
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
 
-
-import { elementAt, findIndex } from 'rxjs';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -29,83 +25,86 @@ export class ConfigComponent implements OnInit {
 
     // Cargar tarjetones desde localStorage
     const storedTarjetones = localStorage.getItem('tarjetones');
-
-
     if (storedTarjetones) {
       this.tarjeton.set(JSON.parse(storedTarjetones));
     }
 
-    //DOC
-    const storedDocValue = localStorage.getItem('estadoDoc');
-    if (storedDocValue) {
-      console.log(storedDocValue);
-      this.docLabelStatus.set(JSON.parse(storedDocValue));
-
-      console.log(this.docLabelStatus())
+    const storedDisplaySettings = localStorage.getItem('displaySettings');
+    if (storedDisplaySettings) {
+      this.displaySettings = JSON.parse(storedDisplaySettings);
     }
 
-    const storedDocCheckValue = JSON.parse(localStorage.getItem('estadoDocCheck') || '{}')
-    if (storedDocCheckValue) {
-      this.docCheckedOrNot.update(() => JSON.parse(storedDocCheckValue));
+    // //DOC
+    // const storedDocValue = localStorage.getItem('estadoDoc');
+    // if (storedDocValue) {
+    //   console.log(storedDocValue);
+    //   this.docLabelStatus.set(JSON.parse(storedDocValue));
+
+    //   console.log(this.docLabelStatus())
+    // }
+
+    // const storedDocCheckValue = JSON.parse(localStorage.getItem('estadoDocCheck') || '{}')
+    // if (storedDocCheckValue) {
+    //   this.docCheckedOrNot.update(() => JSON.parse(storedDocCheckValue));
 
 
-      console.log(this.docCheckedOrNot());
-    }
-    //DOC END
+    //   console.log(this.docCheckedOrNot());
+    // }
+    // //DOC END
 
-    //Name
-    const storedNameValue = localStorage.getItem('estadoName');
-    if (storedNameValue) {
-      console.log(storedNameValue);
-      this.nameLabelStatus.set(JSON.parse(storedNameValue));
+    // //Name
+    // const storedNameValue = localStorage.getItem('estadoName');
+    // if (storedNameValue) {
+    //   console.log(storedNameValue);
+    //   this.nameLabelStatus.set(JSON.parse(storedNameValue));
 
-      console.log(this.nameLabelStatus())
-    }
+    //   console.log(this.nameLabelStatus())
+    // }
 
-    const storedNameCheckValue = JSON.parse(localStorage.getItem('estadoNameCheck') || '{}')
-    if (storedNameCheckValue) {
-      this.nameCheckedOrNot.update(() => JSON.parse(storedDocCheckValue));
-
-
-      console.log(this.nameCheckedOrNot());
-    }
-    // Name END
-
-    //CODE
-    const storedCodeValue = localStorage.getItem('estadoCode');
-    if (storedCodeValue) {
-      console.log(storedCodeValue);
-      this.codeLabelStatus.set(JSON.parse(storedCodeValue));
-
-      console.log(this.codeLabelStatus())
-    }
-
-    const storedCodeCheckValue = JSON.parse(localStorage.getItem('estadoCodeCheck') || '{}')
-    if (storedCodeCheckValue) {
-      this.codeCheckedOrNot.update(() => JSON.parse(storedCodeCheckValue));
+    // const storedNameCheckValue = JSON.parse(localStorage.getItem('estadoNameCheck') || '{}')
+    // if (storedNameCheckValue) {
+    //   this.nameCheckedOrNot.update(() => JSON.parse(storedDocCheckValue));
 
 
-      console.log(this.codeCheckedOrNot());
-    }
-    //CODE END
+    //   console.log(this.nameCheckedOrNot());
+    // }
+    // // Name END
 
-    //GROUP
-    const storedGroupValue = localStorage.getItem('estadoGroup');
-    if (storedGroupValue) {
-      console.log(storedGroupValue);
-      this.groupLabelStatus.set(JSON.parse(storedGroupValue));
+    // //CODE
+    // const storedCodeValue = localStorage.getItem('estadoCode');
+    // if (storedCodeValue) {
+    //   console.log(storedCodeValue);
+    //   this.codeLabelStatus.set(JSON.parse(storedCodeValue));
 
-      console.log(this.groupLabelStatus())
-    }
+    //   console.log(this.codeLabelStatus())
+    // }
 
-    const storedGroupCheckValue = JSON.parse(localStorage.getItem('estadoGroupCheck') || '{}')
-    if (storedGroupCheckValue) {
-      this.groupCheckedOrNot.update(() => JSON.parse(storedGroupCheckValue));
+    // const storedCodeCheckValue = JSON.parse(localStorage.getItem('estadoCodeCheck') || '{}')
+    // if (storedCodeCheckValue) {
+    //   this.codeCheckedOrNot.update(() => JSON.parse(storedCodeCheckValue));
 
 
-      console.log(this.groupCheckedOrNot());
-    }
-    //GROUP END
+    //   console.log(this.codeCheckedOrNot());
+    // }
+    // //CODE END
+
+    // //GROUP
+    // const storedGroupValue = localStorage.getItem('estadoGroup');
+    // if (storedGroupValue) {
+    //   console.log(storedGroupValue);
+    //   this.groupLabelStatus.set(JSON.parse(storedGroupValue));
+
+    //   console.log(this.groupLabelStatus())
+    // }
+
+    // const storedGroupCheckValue = JSON.parse(localStorage.getItem('estadoGroupCheck') || '{}')
+    // if (storedGroupCheckValue) {
+    //   this.groupCheckedOrNot.update(() => JSON.parse(storedGroupCheckValue));
+
+
+    //   console.log(this.groupCheckedOrNot());
+    // }
+    // //GROUP END
   }
 
   tarjeton = signal<tarjeton[]>([
@@ -583,78 +582,127 @@ export class ConfigComponent implements OnInit {
 
   listName = signal<string>('')
 
-
-  docLabelStatus = signal<number>(0);
-  nameLabelStatus = signal<number>(0);
-  codeLabelStatus = signal<number>(0);
-  groupLabelStatus = signal<number>(0);
-
-  docCheckedOrNot = signal<string>('')
-  nameCheckedOrNot = signal<string>('')
-  codeCheckedOrNot = signal<string>('')
-  groupCheckedOrNot = signal<string>('')
-
-  activeOrNotDoc (event:Event) {
-
-    if (this.docLabelStatus() === 0){
-      this.docLabelStatus.set(1)
-      this.docCheckedOrNot.set('true')
+  dataFieldDisplay(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    const listItem = inputElement.closest('.list-item');
+  
+    if (listItem) {
+      const orderedList = listItem.parentElement;
+      if (orderedList) {
+        const listItems = Array.from(orderedList.children);
+        const index = listItems.indexOf(listItem);
+        
+        const settingKeys = ['group', 'document', 'name', 'code'];
+        if (settingKeys[index]) {
+          this.displaySettings[settingKeys[index]] = inputElement.checked;
+        }
+  
+        // Actualiza y guarda el estado en el localStorage
+        this.updateAndSaveDisplaySettings();
+        console.log(this.displaySettings);
+      } else {
+        alert('No se pudo encontrar el elemento de lista ordenada.');
+      }
+    } else {
+      alert('Elemento no encontrado en la lista.');
     }
-    else if (this.docLabelStatus() === 1){
-      this.docLabelStatus.set(0)
-      this.docCheckedOrNot.set('false')
-    }
-
-    console.log(this.docLabelStatus(), this.docCheckedOrNot())
-    localStorage.setItem('estadoDoc', JSON.stringify(this.docLabelStatus()))
-    localStorage.setItem('estadoDocCheck', JSON.stringify(this.docCheckedOrNot()))
-  }
-
-  activeOrNotName (event:Event) {
-
-    if (this.nameLabelStatus() === 0){
-      this.nameLabelStatus.set(1)
-      this.nameCheckedOrNot.set('true')
-    }
-    else if (this.nameLabelStatus() === 1){
-      this.nameLabelStatus.set(0)
-      this.nameCheckedOrNot.set('false')
-    }
-
-    console.log(this.nameLabelStatus(), this.nameCheckedOrNot())
-    localStorage.setItem('estadoName', JSON.stringify(this.nameLabelStatus()))
-    localStorage.setItem('estadoNameCheck', JSON.stringify(this.nameCheckedOrNot()))
   }
   
-  activeOrNotCode (event:Event) {
-
-    if (this.codeLabelStatus() === 0){
-      this.codeLabelStatus.set(1)
-      this.codeCheckedOrNot.set('true')
+  updateAndSaveDisplaySettings() {
+    localStorage.setItem('displaySettings', JSON.stringify(this.displaySettings));
+  }
+  
+  // Opcional: Si necesitas cargar los ajustes del localStorage cuando inicia la aplicación
+  loadDisplaySettings() {
+    const settings = localStorage.getItem('displaySettings');
+    if (settings) {
+      this.displaySettings = JSON.parse(settings);
+      console.log(this.displaySettings)
     }
-    else if (this.codeLabelStatus() === 1){
-      this.codeLabelStatus.set(0)
-      this.codeCheckedOrNot.set('false')
-    }
-
-    console.log(this.codeLabelStatus(), this.codeCheckedOrNot())
-    localStorage.setItem('estadoCode', JSON.stringify(this.codeLabelStatus()))
-    localStorage.setItem('estadoCodeCheck', JSON.stringify(this.codeCheckedOrNot()))
   }
 
-  activeOrNotGroup (event:Event) {
+// Ejemplo de estructura para displaySettings en la clase del componente
+  displaySettings: displayMode = {
+    group: true,
+    document: false,
+    name: false,
+    code: false
+  };
 
-    if (this.groupLabelStatus() === 0){
-      this.groupLabelStatus.set(1)
-      this.groupCheckedOrNot.set('true')
-    }
-    else if (this.groupLabelStatus() === 1){
-      this.groupLabelStatus.set(0)
-      this.groupCheckedOrNot.set('false')
-    }
 
-    console.log(this.groupLabelStatus(), this.groupCheckedOrNot())
-    localStorage.setItem('estadoGroup', JSON.stringify(this.groupLabelStatus()))
-    localStorage.setItem('estadoGroupCheck', JSON.stringify(this.groupCheckedOrNot()))
-  }
-}   
+}
+
+
+  // docLabelStatus = signal<number>(0);
+  // nameLabelStatus = signal<number>(0);
+  // codeLabelStatus = signal<number>(0);
+  // groupLabelStatus = signal<number>(0);
+
+  // docCheckedOrNot = signal<string>('')
+  // nameCheckedOrNot = signal<string>('')
+  // codeCheckedOrNot = signal<string>('')
+  // groupCheckedOrNot = signal<string>('')
+
+  // activeOrNotDoc (event:Event) {
+
+  //   if (this.docLabelStatus() === 0){
+  //     this.docLabelStatus.set(1)
+  //     this.docCheckedOrNot.set('true')
+  //   }
+  //   else if (this.docLabelStatus() === 1){
+  //     this.docLabelStatus.set(0)
+  //     this.docCheckedOrNot.set('false')
+  //   }
+
+  //   console.log(this.docLabelStatus(), this.docCheckedOrNot())
+  //   localStorage.setItem('estadoDoc', JSON.stringify(this.docLabelStatus()))
+  //   localStorage.setItem('estadoDocCheck', JSON.stringify(this.docCheckedOrNot()))
+  // }
+
+  // activeOrNotName (event:Event) {
+
+  //   if (this.nameLabelStatus() === 0){
+  //     this.nameLabelStatus.set(1)
+  //     this.nameCheckedOrNot.set('true')
+  //   }
+  //   else if (this.nameLabelStatus() === 1){
+  //     this.nameLabelStatus.set(0)
+  //     this.nameCheckedOrNot.set('false')
+  //   }
+
+  //   console.log(this.nameLabelStatus(), this.nameCheckedOrNot())
+  //   localStorage.setItem('estadoName', JSON.stringify(this.nameLabelStatus()))
+  //   localStorage.setItem('estadoNameCheck', JSON.stringify(this.nameCheckedOrNot()))
+  // }
+  
+  // activeOrNotCode (event:Event) {
+
+  //   if (this.codeLabelStatus() === 0){
+  //     this.codeLabelStatus.set(1)
+  //     this.codeCheckedOrNot.set('true')
+  //   }
+  //   else if (this.codeLabelStatus() === 1){
+  //     this.codeLabelStatus.set(0)
+  //     this.codeCheckedOrNot.set('false')
+  //   }
+
+  //   console.log(this.codeLabelStatus(), this.codeCheckedOrNot())
+  //   localStorage.setItem('estadoCode', JSON.stringify(this.codeLabelStatus()))
+  //   localStorage.setItem('estadoCodeCheck', JSON.stringify(this.codeCheckedOrNot()))
+  // }
+
+  // activeOrNotGroup (event:Event) {
+
+  //   if (this.groupLabelStatus() === 0){
+  //     this.groupLabelStatus.set(1)
+  //     this.groupCheckedOrNot.set('true')
+  //   }
+  //   else if (this.groupLabelStatus() === 1){
+  //     this.groupLabelStatus.set(0)
+  //     this.groupCheckedOrNot.set('false')
+  //   }
+
+  //   console.log(this.groupLabelStatus(), this.groupCheckedOrNot())
+  //   localStorage.setItem('estadoGroup', JSON.stringify(this.groupLabelStatus()))
+  //   localStorage.setItem('estadoGroupCheck', JSON.stringify(this.groupCheckedOrNot()))
+  // }  

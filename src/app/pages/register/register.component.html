@@ -1,0 +1,51 @@
+<div class="mainContainer">
+    <section class="leftSection">
+        <div class="containerSec">
+            <h1>Elecciones de personero 2024</h1>
+            <h2>1. Ingresa tus datos</h2>
+                <div class="userData" id="grupo" *ngIf="displaySettings.group">
+                    <label for="toggleGroup" class="userDataLabel"> Grupo</label>
+                    <select name="toggleGroup" id="" (change)="onGroupSelected($event)" class="userDataSelect">
+                        <option *ngFor="let grupo of uniqueGroups()">
+                            <p>{{grupo}}</p>
+                        </option>
+                    </select>
+                </div>
+                <div class="userData" id="nombre" *ngIf="displaySettings.name">
+                    <label for="toggleName" class="userDataLabel">Nombre</label>
+                    <select name="toggleName" id="toggleName" class="userDataSelect">
+                      <option *ngFor="let votante of filteredVotantes()" [value]="votante.id">{{ votante.name }}</option>
+                    </select>
+                  </div>
+                <div class="userData" id="documento" *ngIf="displaySettings.document">
+                    <label for="toggleDocument" class="userDataLabel"> Documento</label>
+                    <select name="toggleDocument" class="userDataSelect">
+                        <option *ngFor="let votante of filteredVotantes()">
+                            <p>{{votante.id}}</p>
+                        </option>
+                    </select>
+                </div>
+                <div class="userData" id="codigo" *ngIf="displaySettings.code">
+                    <label for="toggleCode" class="userDataLabel"> Código</label>
+                    <select name="toggleCode" class="userDataSelect">
+                        <option *ngFor="let votante of filteredVotantes()">
+                            <p>{{votante.code}}</p>
+                        </option>
+                    </select>
+                </div>
+        </div>
+        <div class="buttonContainer">
+            <button style="cursor: pointer;" class="startVotation" (click)="guardarVotante()" [routerLink]="['/tarjetones']">
+                <div class="buttonContent">
+                    <p>ir a votar</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                    </svg>
+                </div>
+            </button>
+        </div>
+    </section>
+    
+    <section class="rightSection">
+    </section>
+</div>

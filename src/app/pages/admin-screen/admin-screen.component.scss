@@ -1,11 +1,23 @@
 .mainContainer {
-    display: flex;
+
+    .generalContainer{
+        display: flex;
     flex-direction: column;
     height: 100vh;
     width: 100vw;
     justify-content: center;
     align-items: center;
     background-color: white;
+
+
+    .mainTitle {
+        color: #005A7A;
+        font-family: "Montserrat", sans-serif;
+        font-size: 2rem;
+        font-weight: bold;
+        position: absolute;
+        top: 250px;
+    }
 
     .cardsContainer {
         display: flex;
@@ -14,16 +26,37 @@
         padding: 0;
         gap: 16px;
 
-
         .card {
+            display: grid;
+            grid-template-rows: 40px 160px 40px ;
             width: 240px;
-            height: fit-content;
+            height: 240px;
             background-color: #E3F3FC;
             padding: 20px 16px;
+            border-radius: 8px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+            .cardLogo {
+                background-color: white;
+                padding: 8px;
+                border-radius: 8px;
+            }
+
+            span {
+
+                p {
+                    color: #005A7A;
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 1rem;
+                    font-weight: 400;
+                }
+            }
 
             button {
                 background-color: transparent;
                 border: 0;
+                padding: 0;
+                width: 40px;
             }
 
             svg {
@@ -32,4 +65,5 @@
             }
         }
     }
-}
+    
+}}

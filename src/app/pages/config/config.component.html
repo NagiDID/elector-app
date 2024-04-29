@@ -1,6 +1,6 @@
 <div class="container">
     <section class="left-section">
-        <h1 class="left-section-item" id="title">Configuración</h1>
+        <h1 class="left-section-item" id="title" (click)="loadDisplaySettings()">Configuración</h1>
         <div class="left-section-item" id="event-name">
             <h2 class="subtitle">Nombre del evento</h2>
             <input class="input" type="text" placeholder="Elecciones de personero 2024">
@@ -27,20 +27,20 @@
             <h2 class="subtitle">Datos solicitados</h2>
             <ol class="list">
                 <li class="list-item">
-                    <label class="toggle-label">Documento</label>
-                    <input class="toggle-input" type="checkbox" id="switchA" (change)="activeOrNotDoc($event)" [defaultChecked]="docCheckedOrNot()">
+                    <label for="toggle-input" class="toggle-label">Grupo</label>
+                    <input class="toggle-input" type="checkbox" id="switchA" (click)="dataFieldDisplay($event)" disabled checked>
                 </li>
                 <li class="list-item">
-                    <label class="toggle-label">Nombre</label>
-                    <input class="toggle-input" type="checkbox" id="switchB" (change)="activeOrNotName($event)" [defaultChecked]="nameCheckedOrNot()">
+                    <label for="toggle-input" class="toggle-label">Documento</label>
+                    <input class="toggle-input" type="checkbox" id="switchB" (click)="dataFieldDisplay($event)" [checked]="displaySettings.document">
                 </li>
                 <li class="list-item">
-                    <label class="toggle-label">Código</label>
-                    <input class="toggle-input" type="checkbox" id="switchC" (change)="activeOrNotCode($event)" [defaultChecked]="codeCheckedOrNot()">
+                    <label for="toggle-input" class="toggle-label">Nombre</label>
+                    <input class="toggle-input" type="checkbox" id="switchC" (click)="dataFieldDisplay($event)" [checked]="displaySettings.name">
                 </li>
                 <li class="list-item">
-                    <label class="toggle-label">Grupo</label>
-                    <input class="toggle-input" type="checkbox" id="switchD" (change)="activeOrNotGroup($event)" [defaultChecked]="groupCheckedOrNot()">
+                    <label for="toggle-input" class="toggle-label">Código</label>
+                    <input class="toggle-input" type="checkbox" id="switchD" (click)="dataFieldDisplay($event)" [checked]="displaySettings.code">
                 </li>
             </ol>
         </div>

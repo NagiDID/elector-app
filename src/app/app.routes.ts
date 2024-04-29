@@ -2,7 +2,10 @@ import { Routes } from '@angular/router';
 import { ConfigComponent } from './pages/config/config.component';
 import { TarjetonEditComponent } from './pages/config/tarjeton-edit/tarjeton-edit.component';
 import { AdminScreenComponent } from './pages/admin-screen/admin-screen.component';
-import { RegistroComponent } from './pages/registro/registro.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { ElectionResultsComponent } from './pages/election-results/election-results.component';
+import { TarjetonesComponent } from './pages/tarjetones/tarjetones.component';
+import { CandidatosComponent } from './pages/candidatos/candidatos.component';
 
 export const routes: Routes = [
     {
@@ -19,7 +22,18 @@ export const routes: Routes = [
     },
     {
         path:'registro',
-        component: RegistroComponent,
+        component: RegisterComponent,
     },
-    
+    {
+        path: 'resultadosElecciones',
+        component: ElectionResultsComponent,
+    },
+    {
+        path: 'tarjetones',
+        component: TarjetonesComponent,
+    },
+    {
+        path: 'candidatos',
+        component: CandidatosComponent,
+    }
 ];

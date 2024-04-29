@@ -1,0 +1,19 @@
+<div class="mainContainer">
+    
+</div>
+<ul class="listaCandidatos"> 
+    <li 
+    *ngFor="let candidate of candidates();
+    index as i" 
+    class="candidateCard">
+        <img 
+        class="candidateAvatar" 
+        src="{{candidate.avatar}}" 
+        alt="candidatePhoto">
+        <div 
+        class="candidate-text-info">
+            <p>0{{candidate.number}}</p>
+            <p>{{candidate.name}}</p>
+        </div>
+    </li>
+</ul>

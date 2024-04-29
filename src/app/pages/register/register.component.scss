@@ -1,0 +1,100 @@
+.mainContainer {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+
+    .leftSection {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;  
+        gap: 24px;  
+    
+        .containerSec {
+            width: 416px;
+            display: grid;
+            grid-template-rows: repeat(auto, auto);
+            gap: 24px;
+            h1 {
+                color: #005A7A;
+                font-family: "Montserrat", sans-serif;
+                font-size: 2rem;
+                font-weight: bold;
+                margin: 0;
+            }
+            h2 {
+                color: #005A7A;
+                font-family: "Montserrat", sans-serif;
+                font-size: 1rem;
+                font-weight: 500;
+                margin: 0;
+            }
+    
+            .userData {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+    
+                .userDataLabel {
+                    font-family: "Montserrat", sans-serif;
+                    color: #005A7A;
+                    font-size: 1rem;
+                    font-weight: 500;
+                }
+    
+                .userDataSelect {
+                    background-color: transparent;
+                    border: none;
+                    padding: 8px 0px;
+                    margin: 0;
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 1rem;
+                    color: #005A7A;
+                    outline: 1px solid white; 
+                    outline-offset: -1px; 
+                    border-bottom: 2.5px solid #005A7A;
+    
+                }
+            }
+        }
+    
+        .buttonContainer {
+        width: 416px;
+            
+            .startVotation {
+            width: fit-content;
+            height: fit-content;
+            background-color: #003A52;
+            border-radius: 24px;
+            border: none;
+    
+                .buttonContent{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 12px 20px;
+            
+                    p {
+                        color: white;
+                        font-family: "Montserrat", sans-serif;
+                        font-size: 1rem;
+                        font-weight: 400;
+                        margin: 0;
+                        padding: 0;
+                    }
+            
+                    svg {
+                        height: 16px;
+                        fill: white;
+                    }
+                }
+            }
+    
+        }
+    }
+}
+
