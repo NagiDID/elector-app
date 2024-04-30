@@ -1,19 +1,24 @@
 <div class="mainContainer">
-    
+    <div class="titles">
+        <h1 class="mainTitle"> Elecciones de personero 2024 </h1>
+        <h2 class="subTitle"> 3. Elige el candidato a {{tarjetonActual()}} de tu preferencia.</h2>
+    </div>
+    <ul class="listaCandidatos"> 
+        <li 
+        *ngFor="let candidate of candidates();
+        index as i" 
+        class="candidateCard"
+        (click)="selectCandidate(i, candidate.name)"
+        [routerLink]="['/confirm']">
+            <img 
+            class="candidateAvatar" 
+            src="{{candidate.avatar}}" 
+            alt="candidatePhoto">
+            <div 
+            class="candidate-text-info">
+                <p>0{{candidate.number}}</p>
+                <p>{{candidate.name}}</p>
+            </div>
+        </li>
+    </ul>
 </div>
-<ul class="listaCandidatos"> 
-    <li 
-    *ngFor="let candidate of candidates();
-    index as i" 
-    class="candidateCard">
-        <img 
-        class="candidateAvatar" 
-        src="{{candidate.avatar}}" 
-        alt="candidatePhoto">
-        <div 
-        class="candidate-text-info">
-            <p>0{{candidate.number}}</p>
-            <p>{{candidate.name}}</p>
-        </div>
-    </li>
-</ul>

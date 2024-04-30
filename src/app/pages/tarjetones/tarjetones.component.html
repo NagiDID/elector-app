@@ -3,11 +3,12 @@
         <h1 class="mainTile">Elecciones de personero 2024</h1>
         <h2 class="subTitle">2. En qué tarjetón quieres votar</h2>    
     </div>
-    <ul class="list">
+    <ul class="list" >
         <li *ngFor="let card of tarjeton(); let i = index" 
             class="tarjetonCard"
             [class.disabled]="isDisabled(i)"
-            (click)="handleClick(i)">
+            (click)="handleClick(i)"
+            [routerLink]="['/candidatos']">
             <p class="cardinfo" id="cardPosition">{{i + 1}}</p>
             <p class="cardinfo" id="cardName">{{ card.name }}</p>
         </li>

@@ -1,0 +1,45 @@
+<div class="mainContainer">
+    <section class="titles">
+        <h1 class="mainTitle">Elecciones de personero 2024</h1>
+        <h2 class="subTitle">4. Confirma tu elección</h2>
+    </section>
+    
+    <section class="confirmSection">
+        <div 
+        class="candidateCard">
+            <img 
+            class="candidateAvatar" 
+            src="{{candidates().at(indexOfCandidate())?.avatar}}" 
+            alt="candidatePhoto">
+            <div 
+            class="candidate-text-info">
+                <p>0{{candidates().at(indexOfCandidate())?.number}}</p>
+                <p>{{candidates().at(indexOfCandidate())?.name}}</p>
+            </div>
+        </div>
+        <div class="confirmation">
+            <div class="textInfo">
+                <h1 class="mainTitle">Estás a punto de votar por {{candidates().at(indexOfCandidate())?.name}} para {{tarjetonActual()}}</h1>
+                <p class="subText">¿Estás seguro, deseas continuar?</p>
+            </div>
+            <div class="buttonsContainer">
+                <button 
+                class="buttonInput"
+                (click)="saveCandidateVoted()"
+                [routerLink]="['/success']">
+                    Sí, continuar
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/>
+                    </svg>
+                </button>
+                <button class="buttonInput" [routerLink]="['/candidatos']">
+                    No, volver
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                       <path d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM231 127c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-71 71L376 232c13.3 0 24 10.7 24 24s-10.7 24-24 24l-182.1 0 71 71c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L119 273c-9.4-9.4-9.4-24.6 0-33.9L231 127z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+</div>
+

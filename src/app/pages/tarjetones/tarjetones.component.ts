@@ -36,7 +36,7 @@ export class TarjetonesComponent {
       this.disabledIndices.add(index);
       // Guardar el índice clickeado en localStorage
       localStorage.setItem('lastClickedIndex', JSON.stringify(index));
-      console.log(`Tarjetón ${index + 1} clickeado`);
+      console.log(`Tarjetón ${index} clickeado`);
     }
   }
 

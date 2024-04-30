@@ -1,42 +1,54 @@
 import { Component, signal } from '@angular/core';
 import { candidate, tarjeton } from '../../models/tags.model';
-import { NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-candidatos',
+  selector: 'app-confirm',
   standalone: true,
-  imports: [NgFor, RouterLink],
-  templateUrl: './candidatos.component.html',
-  styleUrl: './candidatos.component.scss'
+  imports: [RouterLink],
+  templateUrl: './confirm.component.html',
+  styleUrl: './confirm.component.scss'
 })
-export class CandidatosComponent {
+export class ConfirmComponent {
 
-  candidates = signal<candidate[]>([]);
-  tarjetones= signal<tarjeton[]>([]);
+ 
   indexReceived = signal<number>(0);
+  tarjetones= signal<tarjeton[]>([]);
   tarjetonActual = signal<string>('')
+  candidates = signal<candidate[]>([]);
+  indexOfCandidate = signal<number>(0)
+
 
   ngOnInit(): void {
 
+    this.loadTarjetones();
+
     const storedIndex = localStorage.getItem('lastClickedIndex');
     if (storedIndex) {
-      alert(storedIndex)
+      console.log(storedIndex)
       this.showList(JSON.parse(storedIndex))
     }
 
-    this.loadTarjetones();
-
     const valores = localStorage.getItem(`selection-${this.tarjetonActual()}`);
     if (valores) {
-      console.log(valores)
-    }
+      const valuesReceived = JSON.parse(valores)
+      this.indexOfCandidate.set(valuesReceived.index)
 
+      console.log(this.indexOfCandidate())
+    }
+  }
+
+  loadTarjetones() {
+    const tarjetonesString = localStorage.getItem('tarjetones');
+    if (tarjetonesString) {
+      this.tarjetones.set(JSON.parse(tarjetonesString));
+    }
   }
 
   showList (index:number) {
 
     this.indexReceived.set(index);
+    this.tarjetonActual.set(JSON.stringify(this.tarjetones().at(index)?.name))
 
     if (index == 0) {
       const currentData = JSON.parse(localStorage.getItem('votantesPrimeraLista') || '{}');
@@ -60,18 +72,9 @@ export class CandidatosComponent {
     }
   }
 
-  loadTarjetones() {
-    const tarjetonesString = localStorage.getItem('tarjetones');
-    if (tarjetonesString) {
-      this.tarjetones.set(JSON.parse(tarjetonesString));
-      this.tarjetonActual.set(JSON.stringify(this.tarjetones().at(this.indexReceived())?.name))
-    }
-  }
-
-  selectCandidate(index: number, name: string): void {
-    const key = `selection-${this.tarjetonActual()}`;
-    const selection = { index, name };
-    alert (selection.index + selection.name)
-    localStorage.setItem(key, JSON.stringify(selection));
+  saveCandidateVoted() {
+    const candidateVoted = this.indexOfCandidate();
+    console.log(candidateVoted);
+    localStorage.setItem('candidateVoted', candidateVoted.toString());
   }
 }

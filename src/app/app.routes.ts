@@ -6,6 +6,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ElectionResultsComponent } from './pages/election-results/election-results.component';
 import { TarjetonesComponent } from './pages/tarjetones/tarjetones.component';
 import { CandidatosComponent } from './pages/candidatos/candidatos.component';
+import { ConfirmComponent } from './pages/confirm/confirm.component';
+import { SuccessComponent } from './pages/success/success.component';
 
 export const routes: Routes = [
     {
@@ -35,5 +37,13 @@ export const routes: Routes = [
     {
         path: 'candidatos',
         component: CandidatosComponent,
+    },
+    {
+        path: 'confirm',
+        component: ConfirmComponent,
+    },
+    {
+        path: 'success',
+        component: SuccessComponent,
     }
 ];

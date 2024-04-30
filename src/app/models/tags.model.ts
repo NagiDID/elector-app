@@ -27,4 +27,7 @@ export interface displayMode {
     name: boolean;
     code: boolean;
 }
-
+export interface VotingResult {
+    tarjeton: string;
+    votes: string[];
+  }
