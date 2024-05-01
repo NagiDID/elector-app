@@ -16,11 +16,16 @@ export class SuccessComponent {
   tarjetonActual = signal<string>('')
   candidates = signal<candidate[]>([]);
   indexOfCandidate = signal<number>(0)
+  disabledIndicesAtComponent = signal <number>(0)
+  disabledIndicesToClear: Set<number> = new Set([]);
+  isDisplayed = signal<string>('display: flex;')
 
 
   ngOnInit(): void {
 
+    this.loadDisabledIndices();
     this.loadTarjetones();
+    this.compareValuesAndUpdateDisplay();
 
     const storedIndex = localStorage.getItem('lastClickedIndex');
     if (storedIndex) {
@@ -34,13 +39,22 @@ export class SuccessComponent {
     }
   }
 
-    loadTarjetones() {
-    const tarjetonesString = localStorage.getItem('tarjetones');
-    if (tarjetonesString) {
-      this.tarjetones.set(JSON.parse(tarjetonesString));
+  loadDisabledIndices() {
+    const storedIndices = localStorage.getItem('disabledIndices');
+    if (storedIndices) {
+      this.disabledIndicesAtComponent.set(JSON.parse(storedIndices).length);
     }
   }
 
+  loadTarjetones() {
+    const tarjetonesString = localStorage.getItem('tarjetones');
+    if (tarjetonesString) {
+      this.tarjetones.set(JSON.parse(tarjetonesString));
+      console.log(this.tarjetones().length);
+    }
+  }
+
+    
   showList (index:number) {
 
     this.indexReceived.set(index);
@@ -73,15 +87,21 @@ export class SuccessComponent {
     const candidateVoted = this.candidates().at(this.indexOfCandidate())?.name;
     const tarjetonWhereVoted = this.indexReceived();
 
-    // Recuperar los candidatos votados previamente para este tarjetón, si existen
     const existingEntries = localStorage.getItem(`votedCandidates_${tarjetonWhereVoted}`)
     let votedCandidates = existingEntries ? JSON.parse(existingEntries) : [];
-
-    // Agregar el nuevo candidato votado a la lista
     votedCandidates.push(candidateVoted);
-
-    // Guardar la lista actualizada de candidatos votados en localStorage
     localStorage.setItem(`votedCandidates_${tarjetonWhereVoted}`, JSON.stringify(votedCandidates));
-}
+  }
 
+  compareValuesAndUpdateDisplay() {
+    if (this.tarjetones().length === this.disabledIndicesAtComponent()) {
+      this.isDisplayed.set('display: none;');
+    } else {
+      this.isDisplayed.set('display: flex;');
+    }
+  }
+
+  clearDisabledIndices(): void {
+    localStorage.setItem('disabledIndices', JSON.stringify(Array.from(this.disabledIndicesToClear)));
+  }
 }

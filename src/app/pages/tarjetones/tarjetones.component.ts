@@ -18,7 +18,13 @@ export class TarjetonesComponent {
 
   ngOnInit(): void {
 
-    this.loadDisabledIndices();
+    const storedIndices = localStorage.getItem('disabledIndices');
+    if (storedIndices) {
+      this.disabledIndices = JSON.parse(storedIndices)
+      alert(JSON.parse(storedIndices))
+    }
+
+    this.loadDisabledIndices(storedIndices);
 
     const storedTarjetones = localStorage.getItem('tarjetones');
     if (storedTarjetones) {
@@ -34,14 +40,13 @@ export class TarjetonesComponent {
   handleClick(index: number): void {
     if (!this.disabledIndices.has(index)) {
       this.disabledIndices.add(index);
-      // Guardar el índice clickeado en localStorage
+      this.saveDisabledIndices()
       localStorage.setItem('lastClickedIndex', JSON.stringify(index));
       console.log(`Tarjetón ${index} clickeado`);
     }
   }
 
-  loadDisabledIndices(): void {
-    const storedIndices = localStorage.getItem('disabledIndices');
+  loadDisabledIndices(storedIndices:any) {
     if (storedIndices) {
       this.disabledIndices = new Set(JSON.parse(storedIndices));
     }
@@ -49,18 +54,11 @@ export class TarjetonesComponent {
 
   isDisabled(index: number): boolean {
     const isDisabled = this.disabledIndices.has(index);
-    this.saveDisabledIndices(); // Guarda los cambios cada vez que se verifique el estado
+    localStorage.setItem('disabledIndices', JSON.stringify(Array.from(this.disabledIndices)));
     return isDisabled;
   }
-  
+
   saveDisabledIndices(): void {
     localStorage.setItem('disabledIndices', JSON.stringify(Array.from(this.disabledIndices)));
-  }
-
-  restartScreen(event: MouseEvent): void {
-    event.preventDefault();  // Opcional, previene cualquier comportamiento predeterminado del botón
-    this.disabledIndices.clear();  // Limpia el conjunto de índices deshabilitados
-    this.saveDisabledIndices();    // Guarda el conjunto vacío en localStorage
-    console.log('Disabled indices have been reset.');  // Mensaje de confirmación en consola
   }
 }
