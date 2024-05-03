@@ -34,6 +34,7 @@ export class TarjetonEditComponent {
   addTarjeton(event: Event) {
     const newTarjeton = {
       name: this.newName(),
+      amountCandidates:0,
     };
     this.tarjetones.update((tarjetones) => {
       const updatedTarjetones = [...tarjetones, newTarjeton];

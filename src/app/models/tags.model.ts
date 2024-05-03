@@ -18,6 +18,7 @@ export interface votantes {
 }
 export interface tarjeton {
     name:string,
+    amountCandidates:number,
 }
 
 export interface displayMode {

@@ -21,7 +21,6 @@ export class TarjetonesComponent {
     const storedIndices = localStorage.getItem('disabledIndices');
     if (storedIndices) {
       this.disabledIndices = JSON.parse(storedIndices)
-      alert(JSON.parse(storedIndices))
     }
 
     this.loadDisabledIndices(storedIndices);
