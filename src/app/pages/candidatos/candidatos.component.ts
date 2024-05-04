@@ -21,7 +21,6 @@ export class CandidatosComponent {
 
     const storedIndex = localStorage.getItem('lastClickedIndex');
     if (storedIndex) {
-      alert(storedIndex)
       this.showList(JSON.parse(storedIndex))
     }
 
@@ -71,7 +70,6 @@ export class CandidatosComponent {
   selectCandidate(index: number, name: string): void {
     const key = `selection-${this.tarjetonActual()}`;
     const selection = { index, name };
-    alert (selection.index + selection.name)
     localStorage.setItem(key, JSON.stringify(selection));
   }
 }

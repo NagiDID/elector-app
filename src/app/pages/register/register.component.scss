@@ -62,6 +62,9 @@
     
         .buttonContainer {
         width: 416px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
             
             .startVotation {
             width: fit-content;
@@ -92,6 +95,36 @@
                     }
                 }
             }
+
+            .endVotation {
+                width: fit-content;
+                height: fit-content;
+                background-color: transparent;
+                border-radius: 24px;
+                border: 2px solid #003A52;
+        
+                    .buttonContent{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 8px;
+                        padding: 10px 18px;
+                
+                        p {
+                            color: #003A52;
+                            font-family: "Montserrat", sans-serif;
+                            font-size: 1rem;
+                            font-weight: 600;
+                            margin: 0;
+                            padding: 0;
+                        }
+                
+                        svg {
+                            height: 16px;
+                            fill: #003A52;
+                        }
+                    }
+                }
     
         }
     }

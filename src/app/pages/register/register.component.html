@@ -1,7 +1,7 @@
 <div class="mainContainer">
     <section class="leftSection">
         <div class="containerSec">
-            <h1>Elecciones de personero 2024</h1>
+            <h1>{{eventName()}}</h1>
             <h2>1. Ingresa tus datos</h2>
                 <div class="userData" id="grupo" *ngIf="displaySettings.group">
                     <label for="toggleGroup" class="userDataLabel"> Grupo</label>
@@ -40,6 +40,14 @@
                     <p>ir a votar</p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                    </svg>
+                </div>
+            </button>
+            <button style="cursor: pointer;" class="endVotation" [routerLink]="['/modoAdmin']">
+                <div class="buttonContent">
+                    <p>Finalizar</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                        <path d="M320 32c0-9.9-4.5-19.2-12.3-25.2S289.8-1.4 280.2 1l-179.9 45C79 51.3 64 70.5 64 92.5V448H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H96 288h32V480 32zM256 256c0 17.7-10.7 32-24 32s-24-14.3-24-32s10.7-32 24-32s24 14.3 24 32zm96-128h96V480c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H512V128c0-35.3-28.7-64-64-64H352v64z"/>
                     </svg>
                 </div>
             </button>

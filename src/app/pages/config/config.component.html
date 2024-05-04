@@ -1,9 +1,16 @@
 <div class="container">
     <section class="left-section">
-        <h1 class="left-section-item" id="title" (click)="loadDisplaySettings()">Configuración</h1>
+        <div class="titleContainer ">
+            <button class="backButton" [routerLink]="['/modoAdmin']">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+                </svg>
+            </button>
+            <h1 class="left-section-item" id="title" (click)="loadDisplaySettings()" [routerLink]="['/modoAdmin']">Configuración</h1>
+        </div>
         <div class="left-section-item" id="event-name">
             <h2 class="subtitle">Nombre del evento</h2>
-            <input class="input" type="text" placeholder="Elecciones de personero 2024">
+            <input class="input" type="text" placeholder="{{eventName()}}" (change)="changeEventName($event)">
         </div>
         <div class="left-section-item" id="table-number">
             <h2 class="subtitle">Número de mesa</h2>
@@ -51,12 +58,12 @@
             </div>
             <div class="candidate-info">
                 <label class="subtitle" for="">Editar nombre del candidato</label>
-                <input id="editNameInput" class="typeInput" type="text" value="{{currentName()}}"
+                <input id="editNameInput" class="typeInput" type="text" placeholder="{{currentName()}}"
                     (change)="changeName($event)">
             </div>
             <div class="candidate-info">
                 <label class="subtitle" for="">Editar número del candidato: </label>
-                <input id="editNumberInput" class="typeInput" type="text" value="{{currentNumber()}}"
+                <input id="editNumberInput" class="typeInput" type="text" placeholder="{{currentNumber()}}"
                     (change)="changeNumber($event)">
             </div>
             <button id="saveInfo" (click)="editCandidateinfo($event)">

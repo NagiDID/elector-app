@@ -17,16 +17,40 @@
     min-width: fit-content;
     gap: 1.5rem;
     padding: 1.5vh 0;
-}
-.container #title {
-    color: #003A52;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0;
-}
-.container .left-section-item {
-    width: 280px;
+
+    .titleContainer{
+        display: flex; 
+        width: 280px;
+        align-items: center;
+        gap: 8px;
+        #title {
+            color: #003A52;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+        button{
+            display: flex;
+            width: 20px;
+            height: 20px;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            svg{
+                width: 20px;
+                height: 20px;
+                fill: #003A52;
+            }
+        }
+    }   
+    .left-section-item {
+        width: 280px;
+    }
 }
 .container .left-section-item .subtitle{
     color: #003A52;

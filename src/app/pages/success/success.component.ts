@@ -86,11 +86,13 @@ export class SuccessComponent {
   saveToResults() {
     const candidateVoted = this.candidates().at(this.indexOfCandidate())?.name;
     const tarjetonWhereVoted = this.indexReceived();
+    console.log(tarjetonWhereVoted)
 
     const existingEntries = localStorage.getItem(`votedCandidates_${tarjetonWhereVoted}`)
     let votedCandidates = existingEntries ? JSON.parse(existingEntries) : [];
     votedCandidates.push(candidateVoted);
     localStorage.setItem(`votedCandidates_${tarjetonWhereVoted}`, JSON.stringify(votedCandidates));
+    console.log(votedCandidates)
   }
 
   compareValuesAndUpdateDisplay() {

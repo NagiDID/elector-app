@@ -1,5 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { CommonModule, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { displayMode, votantes } from '../../models/tags.model';
 import { RouterLink } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, NgIf, RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit{
   filteredVotantes = signal<votantes[]>([]);
   uniqueGroups = signal<string[]>([]);
   selectedGroup = signal<string>('');
+  eventName = signal<string>('')
 
   displaySettings: displayMode = {
     group: true,
@@ -26,6 +27,12 @@ export class RegisterComponent implements OnInit{
   };
 
   ngOnInit() {
+
+    const nombreDelEvento = localStorage.getItem("nombreDelEvento");
+    if(nombreDelEvento) {
+      this.eventName.set(nombreDelEvento)
+    }
+
     const storedDisplaySettings = localStorage.getItem('displaySettings');
     if (storedDisplaySettings) {
       this.displaySettings = JSON.parse(storedDisplaySettings);
@@ -36,6 +43,12 @@ export class RegisterComponent implements OnInit{
       const votantesData = JSON.parse(storedVotantes);
       this.votantes.set(votantesData);
       this.extractUniqueGroups(votantesData);
+    }
+
+    const remainingVotantes = localStorage.getItem('remainVotantes')
+    if (remainingVotantes){
+      this.votantes.set(JSON.parse(remainingVotantes))
+      console.log(this.votantes())
     }
   }
 
@@ -49,8 +62,6 @@ export class RegisterComponent implements OnInit{
     const groupValue = event.target as HTMLInputElement;
     const group = groupValue.value;
 
-    alert('el grupo actual es ' + group)
-
     this.selectedGroup.set(group);
     this.filterVotantesByGroup(group);
   }
@@ -58,19 +69,22 @@ export class RegisterComponent implements OnInit{
   filterVotantesByGroup(group: string) {
     const filtered = this.votantes().filter(votante => votante.group === group);
     this.filteredVotantes.set(filtered);
+    console.log(this.filteredVotantes())
   }
 
   guardarVotante(): void {
     const selectElement = document.querySelector('select[name="toggleName"]') as HTMLSelectElement;
     const selectedId = selectElement ? parseInt(selectElement.value, 10) : null;
     console.log(selectElement, selectedId);
+    
     if (selectedId !== null) {
-      // Guardar el votante seleccionado en localStorage
       localStorage.setItem('votanteSeleccionado', selectedId.toString());
   
-      // Filtrar y actualizar la lista de votantes filtrados
-      const remainingVotantes = this.filteredVotantes().filter(votante => votante.id !== selectedId);
-      this.filteredVotantes.set(remainingVotantes);
+      const remainingVotantes = this.votantes().filter(votante => votante.id !== selectedId);
+      this.votantes.set(remainingVotantes);
+
+      const filteredJSON = JSON.stringify(remainingVotantes);
+      localStorage.setItem("remainVotantes", filteredJSON);
     }
   }
 }
