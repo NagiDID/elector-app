@@ -54,7 +54,8 @@
         <section class="edit-candidate-form" [style]="displayTypeEditModule()">
             <div class="candidate-info">
                 <img src="{{currentTemporaryAvatar()}}" alt="default-image">
-                <input class="uploadInput" type="file" (change)="changeAvatar($event)">
+                <label for="uploadInput" class="uploadInputLabel">Seleccionar Archivo</label>
+                <input id="uploadInput" type="file" (change)="changeAvatar($event)">
             </div>
             <div class="candidate-info">
                 <label class="subtitle" for="">Editar nombre del candidato</label>
@@ -80,7 +81,7 @@
         <div class="list-container" id="container-lista-votantes">
             <h2 class="listCont-item" id="subtitle"> Lista de votantes | Mesa {{ numeroMesa() }}</h2>
             <ul class="listCont-item" id="main-list">
-                <li>
+                <li class="mainListItem">
                     <ul class="child-list" id="listaNombre">
                         <li class="list-title">Nombre</li>
                         <li *ngFor="let user of votantes() | slice:1 ; index as i" class="list-item">
@@ -88,7 +89,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="mainListItem">
                     <ul class="child-list" id="listaGrupo">
                         <li class="list-title" [style]="">Grupo</li>
                         <li *ngFor="let user of votantes() | slice:1 ; index as i" class="list-item">
@@ -96,7 +97,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="mainListItem">
                     <ul class="child-list" id="listaDocumento">
                         <li class="list-title">Documento</li>
                         <li *ngFor="let user of votantes() | slice:1 ; index as i" class="list-item">
@@ -104,7 +105,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="mainListItem">
                     <ul class="child-list" id="listaCodigo">
                         <li class="list-title">Código</li>
                         <li *ngFor="let user of votantes() | slice:1 ; index as i" class="list-item">
@@ -120,19 +121,19 @@
             <div class="listaTarjetones" >
                 <h2 class="subtitle"> Lista de tarjetones <span> | {{ tarjeton().length }} Tarjetones registrados |
                 </span><a [routerLink]="['/editTarjetones']">Editar Lista</a>
-            </h2>
-            <ul class="list">
-                <li *ngFor="let card of tarjeton(); let i = index" class="tarjetonCard" (click)="showList(card.name, i)">
-                    <p class="cardinfo" id="cardPosition">{{i + 1}}</p>
-                    <p class="cardinfo" id="cardName">{{ card.name }}</p>
-                    <p class="cardinfo" id="cardAmount">{{card.amountCandidates}} candidatos registrados</p>
-                    <button class="addCandidate" (click)="popUpAddModule($event, i)">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                            <path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V136c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H552v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
+                </h2>
+                <ul class="list">
+                    <li *ngFor="let card of tarjeton(); let i = index" class="tarjetonCard" (click)="showList(card.name, i)">
+                        <p class="cardinfo" id="cardPosition">{{i + 1}}</p>
+                        <p class="cardinfo" id="cardName">{{ card.name }}</p>
+                        <p class="cardinfo" id="cardAmount">{{card.amountCandidates}} candidatos registrados</p>
+                        <button class="addCandidate" (click)="popUpAddModule($event, i)">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                <path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V136c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H552v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/>
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
             </div>
             <div class="listasCandidatos">
                     <h2 class="subtitle">
