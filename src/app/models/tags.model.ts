@@ -32,3 +32,7 @@ export interface VotingResult {
     tarjeton: string;
     votes: string[];
   }
+export interface resultados {
+    candidateName: string;
+    amountOfVotes: number;
+}
