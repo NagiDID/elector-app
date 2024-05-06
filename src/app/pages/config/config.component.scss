@@ -461,10 +461,12 @@
                     margin: 0;
                     padding: 0;
                     width: 35vw;
-                    height: auto;
+                    height: fit-content;
 
                     @media (max-width: 1685px) {
-                        overflow: scroll;
+                        padding: 10px;
+                        margin: -10px;
+                        overflow-x: scroll;
                     }
 
                     .tarjetonCard{
