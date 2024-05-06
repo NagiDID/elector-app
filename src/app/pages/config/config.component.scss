@@ -11,11 +11,6 @@
         justify-content: start;
         padding: 1.5vh 0;
         width: 20vw;
-
-        @media (max-width: 1404px) {
-            position: relative;
-            width: 316px;
-        }
         
     
         .titleContainer{
@@ -23,6 +18,10 @@
             width: 280px;
             align-items: center;
             gap: 8px;
+
+            @media (max-width: 1404px) {
+                width: inherit;
+            }
             #title {
                 color: #003A52;
                 font-family: "Montserrat", sans-serif;
@@ -52,6 +51,10 @@
         .left-section-item {
             width: 280px;
 
+            @media (max-width: 1404px) {
+                width: inherit;
+            }
+
             .subtitle{
                 color: #003A52;
                 font-family: "Montserrat", sans-serif;
@@ -67,6 +70,10 @@
             gap: 8px;
             width: 280px;
             padding: 0;
+
+            @media (max-width: 1404px) {
+                width: inherit;
+            }
 
             .input {
                 background-color: transparent;
@@ -86,6 +93,10 @@
             gap: 8px;
             padding: 0;
             width: 280px;
+
+            @media (max-width: 1404px) {
+                width: inherit;
+            }
         
             .increase-input {
                 display: flex;
@@ -124,6 +135,10 @@
             gap: 8px;
             padding: 0px;
             width: 280px;
+
+            @media (max-width: 1404px) {
+                width: inherit;
+            }
         
             .list {
                 display: flex;
@@ -158,11 +173,28 @@
             border-radius: 5px;
             position: relative;
 
+            @media (max-width: 1404px) {
+                width: inherit;
+                padding: 0;
+                position: absolute;
+                top: 145px;
+                box-shadow: none;
+                background-color: #E3F3FC;
+            }
+
             .candidate-info{
+
+                @media (max-width: 1404px) {
+                    width: inherit;
+                }
 
                 img{
                 width: 260px;
+                    @media (max-width: 1404px) {
+                        width: inherit;
+                    }
                 }
+                
                 label{
                     color: #003A52;
                     font-family: "Montserrat", sans-serif;
@@ -170,9 +202,17 @@
                     font-weight: 600;
                 }
 
-                .uploadInput{
-                    font-family: "Montserrat", sans-serif;
-                    font-size: 0.75rem;
+                #uploadInput{
+                    display: none;
+                }
+                .uploadInputLabel{
+                    display: flex;
+                    background-color: #003A52;
+                    color: white;
+                    padding: 8px 12px;
+                    border-radius: 4px;
+                    justify-content: center;
+                    cursor: pointer;
                 }
                 .typeInput{
                     width: calc(100% - 4px);
@@ -185,7 +225,6 @@
                     font-weight: 500;
                     padding: 8px 0;
                 }
-
             }
 
             #saveInfo{
@@ -274,12 +313,6 @@
         height: 100vh;
         width: 80vw;
         background-color: white;
-
-        @media (max-width: 1404px) {
-            justify-content: space-between;
-            padding: 0 15px;
-            width: calc(100vw - 316px);  
-        }
     
         #container-lista-votantes {
             display: grid;
@@ -384,25 +417,6 @@
                 height: 29.5vh;
                 gap: 8px;
                 position: relative;
-            
-            @media (max-width: 1685px) {
-                gap: 8px;
-                width: 35vw;
-                margin: 0;
-                padding: 0;
-            }
-            @media (max-width: 1483px) {
-                gap: 8px;
-                width: 525px;
-                margin: 0;
-                padding: 0;
-            }
-            @media (max-width: 1352px) {
-                gap: 8px;
-                width: auto;
-                margin: 0;
-                padding: 0;
-            }
         
                 .subtitle {
                     display: flex;
@@ -414,12 +428,9 @@
                     align-items: center;
                     gap: 8px;
                     width: 35vw;
+                    padding: 0 0 16px 0;
 
                     @media (max-width: 1483px) {
-                        width: 525px;
-                    }
-                    @media (max-width: 1352px) {
-                        width: auto;
                         span {
                             display: none;
                         }
@@ -450,25 +461,10 @@
                     margin: 0;
                     padding: 0;
                     width: 35vw;
+                    height: auto;
 
                     @media (max-width: 1685px) {
-                        overflow-y: scroll;
-                        padding-bottom: 16px;
-                    }
-
-                    @media (max-width: 1483px) {
-                        overflow-y: scroll;
-                        padding-bottom: 16px;
-                        width: 525px;
-                    }
-                    @media (max-width: 1352px) {
-                        overflow-y: scroll;
-                        padding-bottom: 16px;
-                        width: 374px;
-                    }
-                    @media (max-height: 852px) {
-                        padding: 16px;
-                        margin: -16px;
+                        overflow: scroll;
                     }
 
                     .tarjetonCard{
@@ -486,7 +482,7 @@
     
                         @media (max-height: 852px) {
                             grid-template-rows:  repeat(3, auto);
-                            gap: 2vh;
+                            gap: 1vh;
                             padding: 12px;
     
                             p:nth-child(1) {
@@ -500,10 +496,6 @@
                                 align-self: center;
                                 width: fit-content;
                             }
-                        }
-                        @media (max-width: 1483px) {
-                            padding-bottom: 16px;
-                            width: auto;
                         }
                         @media (max-width: 1352px) {
                             padding-bottom: 16px;
@@ -579,6 +571,7 @@
                 align-items: center;
                 height: calc(57vh - 16px);
                 gap: 8px;
+                width: inherit;
         
                 .subtitle {
                     display: flex;
@@ -590,14 +583,9 @@
                     align-items: center;
                     gap: 8px;
                     width: 35vw;
+                    padding: 8px 0 16px 0;
                     background-color: white;
 
-                    @media (max-width: 1483px) {
-                        width: 525px;
-                    }
-                    @media (max-width: 1352px) {
-                        width: auto;
-                    }
                 }
 
                 .listaCandidatos {
