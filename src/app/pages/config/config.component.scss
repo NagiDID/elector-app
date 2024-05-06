@@ -1,705 +1,28 @@
-// .container {
-//     display: flex;
-
-//     .left-section {
-//         align-items: center;
-//         justify-content: start;
-//         background-color: #E3F3FC;
-//         display: flex;
-//         flex-direction: column;
-//         height: 97vh;
-//         width: 20vw;
-//         min-width: fit-content;
-//         gap: 1.5rem;
-//         padding: 1.5vh 0;
-    
-//         .titleContainer{
-//             display: flex; 
-//             width: 280px;
-//             align-items: center;
-//             gap: 8px;
-//             #title {
-//                 color: #003A52;
-//                 font-family: "Montserrat", sans-serif;
-//                 font-size: 1.5rem;
-//                 font-weight: bold;
-//                 margin: 0;
-//             }
-//             button{
-//                 display: flex;
-//                 width: 20px;
-//                 height: 20px;
-//                 justify-content: center;
-//                 align-items: center;
-//                 padding: 0;
-//                 margin: 0;
-//                 background-color: transparent;
-//                 border: none;
-//                 cursor: pointer;
-//                 svg{
-//                     width: 20px;
-//                     height: 20px;
-//                     fill: #003A52;
-//                 }
-//             }
-//         }   
-
-//         .left-section-item {
-//             width: 280px;
-
-//             .subtitle{
-//                 color: #003A52;
-//                 font-family: "Montserrat", sans-serif;
-//                 font-size: 1.25rem;
-//                 font-weight: bold;
-//                 margin: 0;
-//             }
-//         }
-
-//         #event-name {
-//             display: flex;
-//             flex-direction: column;
-//             gap: 8px;
-//             width: 280px;
-//             padding: 0;
-
-//             .input {
-//                 background-color: transparent;
-//                 border-color: #003A52;
-//                 border-width: 0 0 1px 0;
-//                 color: #003A52;
-//                 font-family: "Montserrat", sans-serif;
-//                 font-size: 1rem;
-//                 font-weight: 500;
-//                 padding: 8px 0;
-//             }
-//         }
-
-//         #table-number {
-//             display: flex;
-//             flex-direction: column;
-//             gap: 8px;
-//             padding: 0;
-//             width: 280px;
-        
-//             .increase-input {
-//                 display: flex;
-//                 justify-content: space-between;
-//                 align-items: center;
-        
-//                 button{
-//                     display: flex;
-//                     align-items: center;
-//                     justify-content: center;
-//                     background-color: #003a52;
-//                     border: none;
-//                     height: 40px;
-//                     width: 40px;
-        
-//                     svg{
-//                         fill: white;
-//                         height: 24px;
-//                         width: 24px;
-//                     }
-//                 }
-//             }
-        
-//             .number {
-//             color: #003A52;
-//             font-family: "Montserrat", sans-serif;
-//             font-size: 1rem;
-//             font-weight: bold;
-//             margin: 0;
-//             }
-//         }
-
-//         #toggle-info {
-//             display: flex;
-//             flex-direction: column;
-//             gap: 8px;
-//             padding: 0px;
-//             width: 280px;
-        
-//             .list {
-//                 display: flex;
-//                 flex-direction: column;
-//                 list-style: none;
-//                 padding: 0;
-//                 margin: 0;
-//                 gap: 8px;
-        
-//                 li{
-//                     display: flex;
-//                     justify-content: space-between;
-//                 }
-        
-//                 .list-item .toggle-label{
-//                     color: #003A52;
-//                     font-family: "Montserrat", sans-serif;
-//                     font-size: 1rem;
-//                     font-weight: 600;
-//                 }
-//             }
-//         }
-
-//         .edit-candidate-form {
-//             display: flex;
-//             flex-direction: column;
-//             background-color: white;
-//             width: 260px;
-//             padding: 10px 20px;
-//             gap: 0.5rem;
-//             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-//             border-radius: 5px;
-//             position: relative;
-
-//             .candidate-info{
-
-//                 img{
-//                 width: 260px;
-//                 }
-//                 label{
-//                     color: #003A52;
-//                     font-family: "Montserrat", sans-serif;
-//                     font-size: 1rem;
-//                     font-weight: 600;
-//                 }
-
-//                 .uploadInput{
-//                     font-family: "Montserrat", sans-serif;
-//                     font-size: 0.75rem;
-//                 }
-//                 .typeInput{
-//                     width: calc(100% - 4px);
-//                     background-color: transparent;
-//                     border-color: #003A52;
-//                     border-width: 0 0 1px 0;
-//                     color: #003A52;
-//                     font-family: "Montserrat", sans-serif;
-//                     font-size: 1rem;
-//                     font-weight: 500;
-//                     padding: 8px 0;
-//                 }
-
-//             }
-
-//             #saveInfo{
-//                 align-items: center;
-//                 background-clip: padding-box;
-//                 background-color: #003A52;
-//                 border: 1px solid transparent;
-//                 border-radius: .25rem;
-//                 box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-//                 box-sizing: border-box;
-//                 color: #fff;
-//                 cursor: pointer;
-//                 display: inline-flex;
-//                 font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
-//                 font-size: 16px;
-//                 font-weight: 600;
-//                 justify-content: center;
-//                 line-height: 1.25;
-//                 margin: 0;
-//                 min-height: 3rem;
-//                 padding: calc(.875rem - 1px) calc(1.5rem - 1px);
-//                 position: relative;
-//                 text-decoration: none;
-//                 transition: all 250ms;
-//                 user-select: none;
-//                 -webkit-user-select: none;
-//                 touch-action: manipulation;
-//                 vertical-align: baseline;
-//                 width: auto;
-//             }
-//             #saveInfo:hover, #saveInfo:focus{
-//                 background-color: #0a5b7e;
-//                 box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-//               }
-
-//             #closeForm{
-//                 display: flex;
-//                 justify-content: center;
-//                 align-items: center;
-//                 position: absolute;
-//                 top: 15px;
-//                 right: 25px;
-//                 fill: #eb7412;
-//                 width: 30px;
-//                 height: 30px;
-//                 background-color: white;
-//                 border: none;
-//                 border-radius: 50%;
-//                 padding: 0;
-//                 transition: all 250ms;
-            
-//                 svg {
-//                     width: 30px;
-//                     height: 30px;
-//                 }
-//             }
-//             #closeForm:hover{
-//                 display: flex;
-//                 justify-content: center;
-//                 align-items: center;
-//                 position: absolute;
-//                 top: 15px;
-//                 right: 25px;
-//                 fill: #eb5012;
-//                 width: 30px;
-//                 height: 30px;
-//                 background-color: white;
-//                 border: none;
-//                 border-radius: 50%;
-//                 padding: 0;
-//                 box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-            
-//                 svg {
-//                     width: 30px;
-//                     height: 30px;
-//                 }
-//             }
-//         }
-
-
-//     }
-
-//     .right-section {
-//         display: flex;
-//         align-items: center;
-//         height: 100vh;
-//         width: 80vw;
-//         background-color: white;
-    
-//         #container-lista-votantes {
-//             display: grid;
-//             align-items: start;
-//             justify-content: center;
-//             grid-template-rows: 3.5vh 78vh 5vh;
-//             width: 40vw;
-    
-//             #subtitle {
-//                 color: #003A52;
-//                 font-family: "Montserrat", sans-serif;
-//                 font-size: 1.25rem;
-//                 font-weight: bold;
-//                 margin: 0;
-//             }
-    
-//             #main-list {
-//                 display: flex;
-//                 justify-content: space-between;
-//                 width: 38vw;
-//                 height: 78vh;
-//                 list-style: none;
-//                 margin: 0;
-//                 padding: 0;
-//                 overflow-y: scroll;
-    
-//                 .child-list{
-//                     display: flex;
-//                     flex-direction: column;
-//                     list-style: none;
-//                     margin: 0;
-//                     padding: 0;
-    
-//                     .list-title{
-//                         color: #003A52;
-//                         font-family: "Montserrat", sans-serif;
-//                         font-size: 1rem;
-//                         font-weight: bold;
-//                         margin: 0;
-//                         position: fixed;
-//                         background-color: white;
-//                         padding-right: 100px;
-//                         margin-right: -100px;
-//                         z-index: 0;
-//                     }
-//                     .list-item{
-//                         color: #003A52;
-//                         font-family: "Montserrat", sans-serif;
-//                         font-size: 1rem;
-//                         font-weight: 400;
-//                     }
-//                     .list-item:nth-child(2){
-//                         margin-top: 16px;
-//                     }
-//                 }
-//             }
-//             #main-list::-webkit-scrollbar { 
-//                 margin-left: 5px;
-//                 position: absolute;
-//             }
-    
-//             #container-lista-votantes #main-list {
-//                 display: flex;
-//                 justify-content: space-between;
-//                 width: 38vw;
-//                 height: 78vh;
-//                 list-style: none;
-//                 margin: 0;
-//                 padding: 0;
-//                 overflow-y: scroll;
-//             }
-    
-//             #uploadXlsx{
-//                 display: none;
-//             }
-    
-//             .customFileUpload{
-//                 background-color: transparent;
-//                 border-radius: 0.5rem;
-//                 border: 2px solid #003A52;
-//                 display: flex;
-//                 gap: 1rem;
-//                 justify-content: space-between;
-//                 padding: 12px 20px;
-//                 width: fit-content;
-//                 cursor: pointer;
-//                 color: #003A52;
-//                 font-family: "Montserrat", sans-serif;
-//                 font-size: 1rem;
-//                 font-weight: 400;
-//                 width: fit-content;
-//             }
-            
-//         }
-
-//         #container-lista-candidatos{
-//             display: grid;
-//             align-items: start;
-//             justify-content: center;
-//             grid-template-rows: 29.5vh 57vh;
-//             width: 40vw;
-        
-//             .listaTarjetones{
-//                 display: flex;
-//                 flex-direction: column;
-//                 align-items: center;
-//                 height: 29.5vh;
-//                 gap: 16px;
-//                 position: relative;
-        
-//                 .subtitle {
-//                     display: flex;
-//                     color: #003A52;
-//                     font-family: "Montserrat", sans-serif;
-//                     font-size: 1.25rem;
-//                     font-weight: bold;
-//                     margin: 0;
-//                     align-items: center;
-//                     gap: 8px;
-//                     width: 35vw;
-            
-//                     span { 
-//                         color: #003A52;
-//                         font-family: "Montserrat", sans-serif;
-//                         font-size: 1rem;
-//                         font-weight: 600;
-//                         margin: 0;
-//                     }
-            
-//                     a { 
-//                         color: #003A52;
-//                         font-family: "Montserrat", sans-serif;
-//                         font-size: 1rem;
-//                         font-weight: 600;
-//                         margin: 0;
-//                     }
-//                 }
-        
-//                 .list:nth-child(2) { 
-//                     align-items: center;
-//                     display: flex;
-//                     gap: 16px;
-//                     list-style: none;
-//                     margin: 0;
-//                     padding: 0;
-//                     width: 35vw;
-//                 }
-        
-//                 .addCandidate {
-//                     display: flex;
-//                     justify-content: center;
-//                     align-items: center;
-//                     position: absolute;
-//                     width: 38px;
-//                     height: 39px;
-//                     padding: 0;
-//                     right: 12px;
-//                     top: 16px;
-//                     background-color: white;
-//                     border: 0;
-//                     border-radius: 10%;
-//                     fill: #003A52;
-        
-//                     svg{
-//                         width: 20px;
-//                         height: 20px;
-//                     }
-//                 }
-        
-//                 .tarjetonCard{
-//                     list-style: none;
-//                     display: grid;
-//                     grid-template-rows: 2fr 1fr 1fr;
-//                     background-color: #E3F3FC;
-//                     border-radius: 5px;
-//                     width: 10vw;
-//                     z-index: 1;
-//                     padding: 0px 12px;
-//                     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-//                     position: relative;
-//                     cursor: pointer;
-        
-//                     p:nth-child(1){
-//                         background-color: white;
-//                         padding: 10px 16px;
-//                         border-radius: 50%;
-//                         width: fit-content;
-//                         height: fit-content;
-//                         color: #003A52;
-//                         font-family: "Montserrat", sans-serif;
-//                         font-size: 1rem;
-//                         font-weight: bold;
-//                     }
-        
-//                     p:nth-child(2){
-//                         color: #003A52;
-//                         font-family: "Montserrat", sans-serif;
-//                         font-size: 1rem;
-//                         font-weight: bold;
-//                     }
-        
-//                     p:nth-child(3){
-//                         color: #003A52;
-//                         font-family: "Montserrat", sans-serif;
-//                         font-size: 0.75rem;
-//                         font-weight: 600;
-//                     }
-//                 }
-        
-//             }
-        
-//             .listasCandidatos {
-        
-//                 display: flex;
-//                 flex-direction: column;
-//                 align-items: center;
-//                 height: calc(57vh - 16px);
-//                 gap: 16px;
-        
-//                 .subtitle {
-//                     display: flex;
-//                     color: #003A52;
-//                     font-family: "Montserrat", sans-serif;
-//                     font-size: 1.25rem;
-//                     font-weight: bold;
-//                     margin: 0;
-//                     align-items: center;
-//                     gap: 8px;
-//                     width: 35vw;
-//                     background-color: white;
-//                     padding: 0 0 16px 0;
-//                 }
-        
-//                 .listaCandidatos {
-//                     align-items: start;
-//                     display: grid;
-//                     gap: 16px;
-//                     grid-template-columns: repeat(2, 17.5vw);
-//                     height: calc(51vh - 16px);
-//                     justify-content: center;
-//                     list-style: none;
-//                     margin: -16px;
-//                     overflow-y: scroll;
-//                     padding: 16px;
-//                     width: 35vw;
-//                 }
-//                 .listaCandidatos::-webkit-scrollbar { 
-//                     display: none;
-//                 }
-        
-//                 .candidateCard{
-//                     list-style: none;
-//                     display: grid;
-//                     grid-template-rows: repeat(2, auto);
-//                     background-color: #E3F3FC;
-//                     border-radius: 15px;
-//                     width: fit-content;
-//                     height: fit-content;
-//                     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-//                     position: relative;
-//                     padding: 12px 12px;
-//                     padding-bottom: 0;
-//                     justify-self: center;
-        
-//                     .candidateAvatar{
-//                         width: 15vw;
-//                         border-radius: 8px;
-//                     }
-        
-//                     .candidate-text-info{
-//                         display: flex;
-//                         justify-content: space-between;
-//                         align-items: center;
-//                         color: #003A52;
-//                         font-family: "Montserrat", sans-serif;
-//                         font-size: 1rem;
-//                         font-weight: bold;
-//                     }
-        
-//                     .buttons-container{
-//                         display: flex;
-//                         position: absolute;
-//                         gap: 8px;
-//                         top: 24px;
-//                         left: 24px;
-        
-//                         button {
-//                             width: 30px;
-//                             height: 30px;
-//                             background-color: white;
-//                             border-width: 0;
-//                             border-radius: 5px;
-        
-//                             svg{
-//                                 width: 15px;
-//                                 height: 15px;
-//                                 fill: #003A52;
-//                             }
-//                         }
-        
-//                     }
-//                 }
-//             }
-//         }
-//     }   
-
-//     .addCandidate-form {
-//         height: 100vh;
-//         width: 100vw;
-//         position: absolute;
-//         justify-content: center;
-//         align-items: center;
-//         background-color: rgba(60, 64, 67, 0.5);
-//         z-index: 2;  
-        
-//         .outOfDialog {
-//             width: 100vw;
-//             height: 100vh;
-//             z-index: 0;
-//             cursor: pointer;
-//         }
-    
-//         .edit-module {
-//             display: flex;
-//             flex-direction: column;
-//             gap: 1rem   ;
-//             border: 0;
-//             border-radius: 5px;
-//             padding: 20px 30px;
-//             z-index: 1;
-    
-//             .candidate-info:nth-child(1){
-//                 display: flex;
-//                 flex-direction: column;
-//                 color: #003A52;
-//                 font-family: "Montserrat", sans-serif;
-//                 font-size: 1rem;
-//                 font-weight: bold;
-    
-//                 img{
-//                     width: 320px;
-//                     height: 320px;
-//                 }
-//             }
-    
-//             .candidate-info:nth-child(2), .candidate-info:nth-child(3){
-//                 display: flex;
-//                 flex-direction: column;
-//                 color: #003A52;
-//                 font-family: "Montserrat", sans-serif;
-//                 font-size: 1rem;
-//                 font-weight: 600;
-    
-//                 input{
-//                     width: calc(100% - 4px);
-//                     background-color: transparent;
-//                     border-color: #003A52;
-//                     border-width: 0 0 1px 0;
-//                     color: #003A52;
-//                     font-family: "Montserrat", sans-serif;
-//                     font-size: 1rem;
-//                     font-weight: 400;
-//                     padding: 8px 0;
-//                 }
-//             }
-    
-//             button{
-//                 align-items: center;
-//                 background-clip: padding-box;
-//                 background-color: #003A52;
-//                 border: 1px solid transparent;
-//                 border-radius: .25rem;
-//                 box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-//                 box-sizing: border-box;
-//                 color: #fff;
-//                 cursor: pointer;
-//                 display: inline-flex;
-//                 font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
-//                 font-size: 16px;
-//                 font-weight: 600;
-//                 justify-content: center;
-//                 line-height: 1.25;
-//                 margin: 0;
-//                 min-height: 3rem;
-//                 padding: calc(.875rem - 1px) calc(1.5rem - 1px);
-//                 position: relative;
-//                 text-decoration: none;
-//                 transition: all 250ms;
-//                 user-select: none;
-//                 -webkit-user-select: none;
-//                 touch-action: manipulation;
-//                 vertical-align: baseline;
-//                 width: auto;
-//             }
-    
-//             button:hover{
-//                 background-color: #0a5b7e;
-//                 box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-//             }
-            
-//         }
-//     }
-// }
-
-
-
-
-
 .container {
     display: flex;
-    height: 97vh;
-    width: 100vw;
-
-    //GRUPO 1 / CONFIGURACION
 
     .left-section {
         align-items: center;
-        justify-content: start;
         background-color: #E3F3FC;
         display: flex;
         flex-direction: column;
         gap: 24px;
+        height: 97vh;
+        justify-content: start;
         padding: 1.5vh 0;
-        position: relative;
+        width: 20vw;
 
+        @media (max-width: 1404px) {
+            position: relative;
+            width: 316px;
+        }
+        
+    
         .titleContainer{
             display: flex; 
-            width: fit-content;
+            width: 280px;
             align-items: center;
             gap: 8px;
-
             #title {
                 color: #003A52;
                 font-family: "Montserrat", sans-serif;
@@ -714,7 +37,7 @@
                 justify-content: center;
                 align-items: center;
                 padding: 0;
-                margin: 0 0 0 8px;
+                margin: 0;
                 background-color: transparent;
                 border: none;
                 cursor: pointer;
@@ -725,20 +48,19 @@
                 }
             }
         }   
-    
+
         .left-section-item {
             width: 280px;
-    
+
             .subtitle{
                 color: #003A52;
                 font-family: "Montserrat", sans-serif;
                 font-size: 1.25rem;
                 font-weight: bold;
                 margin: 0;
-        }
+            }
         }
 
-        //GRUPO 2 / NOMBRE DEL EVENTO
         #event-name {
             display: flex;
             flex-direction: column;
@@ -758,20 +80,18 @@
             }
         }
 
-        //GRUPO 2 / END
-        //GRUPO 3 / TABLE NUMBER
         #table-number {
             display: flex;
             flex-direction: column;
             gap: 8px;
             padding: 0;
             width: 280px;
-
+        
             .increase-input {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-
+        
                 button{
                     display: flex;
                     align-items: center;
@@ -780,32 +100,31 @@
                     border: none;
                     height: 40px;
                     width: 40px;
-                    
+        
                     svg{
                         fill: white;
                         height: 24px;
                         width: 24px;
                     }
                 }
-
-                .number {
-                    color: #003A52;
-                    font-family: "Montserrat", sans-serif;
-                    font-size: 1rem;
-                    font-weight: bold;
-                    margin: 0;
-                }
+            }
+        
+            .number {
+            color: #003A52;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 0;
             }
         }
-        //GRUPO 3 / END
-        //GRUPO 4 / TOGGLE INFO
+
         #toggle-info {
             display: flex;
             flex-direction: column;
             gap: 8px;
             padding: 0px;
             width: 280px;
-
+        
             .list {
                 display: flex;
                 flex-direction: column;
@@ -813,12 +132,12 @@
                 padding: 0;
                 margin: 0;
                 gap: 8px;
-
+        
                 li{
                     display: flex;
                     justify-content: space-between;
                 }
-
+        
                 .list-item .toggle-label{
                     color: #003A52;
                     font-family: "Montserrat", sans-serif;
@@ -827,9 +146,7 @@
                 }
             }
         }
-        //GRUPO 4 / END
 
-        //EDIT CANDIDATE FORM
         .edit-candidate-form {
             display: flex;
             flex-direction: column;
@@ -839,34 +156,23 @@
             gap: 0.5rem;
             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
             border-radius: 5px;
-            top: 241px;
-            position: absolute;
+            position: relative;
 
             .candidate-info{
-                display: flex;
-                flex-direction: column;
-                gap: 4px;
 
                 img{
-                    width: 260px;
+                width: 260px;
                 }
-
                 label{
                     color: #003A52;
                     font-family: "Montserrat", sans-serif;
                     font-size: 1rem;
                     font-weight: 600;
                 }
-                #uploadInput{
-                    display: none;
-                }
-                .uploadInputLabel{
-                    display: flex;
-                    background-color: #003A52;
-                    color: white;
-                    padding: 8px 12px;
-                    border-radius: 4px;
-                    justify-content: center;
+
+                .uploadInput{
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 0.75rem;
                 }
                 .typeInput{
                     width: calc(100% - 4px);
@@ -879,6 +185,7 @@
                     font-weight: 500;
                     padding: 8px 0;
                 }
+
             }
 
             #saveInfo{
@@ -912,7 +219,7 @@
             #saveInfo:hover, #saveInfo:focus{
                 background-color: #0a5b7e;
                 box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-            }
+              }
 
             #closeForm{
                 display: flex;
@@ -957,86 +264,93 @@
                 }
             }
         }
-        //EDIT CANDIDATE FORM | END
+
+
     }
 
     .right-section {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding: 0 15px;
         height: 100vh;
-        width: calc(100vw - 316px);  
-        background-color: white;  
+        width: 80vw;
+        background-color: white;
+
+        @media (max-width: 1404px) {
+            justify-content: space-between;
+            padding: 0 15px;
+            width: calc(100vw - 316px);  
+        }
     
         #container-lista-votantes {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            align-items: start;
             justify-content: center;
-            width: max-content;
-            gap: 8px;
-
+            grid-template-rows: 3.5vh 78vh 5vh;
+            width: 40vw;
+    
             #subtitle {
-                display: flex;
                 color: #003A52;
                 font-family: "Montserrat", sans-serif;
                 font-size: 1.25rem;
                 font-weight: bold;
                 margin: 0;
-                width: inherit;
-                justify-self: start;
             }
     
-            #main-list {
+            .mainListItem {
                 display: flex;
-                justify-content: space-between;
-                height: 70vh;
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                overflow-y: scroll;
-                gap: 16px;
-    
-                .mainListItem {
+                flex-direction: column;
+                width: auto;
+
+                .child-list{
                     display: flex;
                     flex-direction: column;
-                    width: auto;
+                    list-style: none;
+                    margin: 0;
+                    padding: 0px;
     
-                    .child-list{
-                        display: flex;
-                        flex-direction: column;
-                        list-style: none;
+                    .list-title{
+                        color: #003A52;
+                        font-family: "Montserrat", sans-serif;
+                        font-size: 1rem;
+                        font-weight: bold;
                         margin: 0;
-                        padding: 0px;
-        
-                        .list-title{
-                            color: #003A52;
-                            font-family: "Montserrat", sans-serif;
-                            font-size: 1rem;
-                            font-weight: bold;
-                            margin: 0;
-                            position: sticky;
-                            top: 0px;
-                            background-color: white;
-                            z-index: 0;
-                        }
-                        .list-item{
-                            color: #003A52;
-                            font-family: "Montserrat", sans-serif;
-                            font-size: 1rem;
-                            font-weight: 400;
-                        }
+                        position: sticky;
+                        top: 0px;
+                        background-color: white;
+                        z-index: 0;
                     }
+                    .list-item{
+                        color: #003A52;
+                        font-family: "Montserrat", sans-serif;
+                        font-size: 1rem;
+                        font-weight: 400;
+                    }
+                }
+            }
+
+                    
                 }
             }
             #main-list::-webkit-scrollbar { 
                 margin-left: 5px;
                 position: absolute;
-                width: 0;
             }
+    
+            #container-lista-votantes #main-list {
+                display: flex;
+                justify-content: space-between;
+                width: 38vw;
+                height: 78vh;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                overflow-y: scroll;
+            }
+    
             #uploadXlsx{
                 display: none;
             }
+    
             .customFileUpload{
                 background-color: transparent;
                 border-radius: 0.5rem;
@@ -1053,27 +367,43 @@
                 font-weight: 400;
                 width: fit-content;
             }
+            
         }
-    
+
         #container-lista-candidatos{
-            display: flex;
-            flex-direction: column;
+            display: grid;
             align-items: start;
             justify-content: center;
-            width: 525px;
-            gap: 24px;
+            grid-template-rows: 29.5vh 57vh;
+            width: 40vw;
         
             .listaTarjetones{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                height: auto;
+                height: 29.5vh;
                 gap: 8px;
                 position: relative;
+            
+            @media (max-width: 1685px) {
+                gap: 8px;
+                width: 35vw;
+                margin: 0;
+                padding: 0;
+            }
+            @media (max-width: 1483px) {
+                gap: 8px;
                 width: 525px;
                 margin: 0;
                 padding: 0;
-    
+            }
+            @media (max-width: 1352px) {
+                gap: 8px;
+                width: auto;
+                margin: 0;
+                padding: 0;
+            }
+        
                 .subtitle {
                     display: flex;
                     color: #003A52;
@@ -1083,7 +413,17 @@
                     margin: 0;
                     align-items: center;
                     gap: 8px;
-                    width: 525px;
+                    width: 35vw;
+
+                    @media (max-width: 1483px) {
+                        width: 525px;
+                    }
+                    @media (max-width: 1352px) {
+                        width: auto;
+                        span {
+                            display: none;
+                        }
+                    }
             
                     span { 
                         color: #003A52;
@@ -1103,30 +443,73 @@
                 }
         
                 .list { 
+                    align-items: center;
                     display: flex;
-                    justify-content: start;
+                    gap: 16px;
                     list-style: none;
-                    padding: 0;
                     margin: 0;
-                    padding-bottom: 8px;
-                    margin-bottom: -8px;
-                    width: 525px;
-                    gap: 8px;
-                    overflow-x: scroll;
-    
+                    padding: 0;
+                    width: 35vw;
+
+                    @media (max-width: 1685px) {
+                        overflow-y: scroll;
+                        padding-bottom: 16px;
+                    }
+
+                    @media (max-width: 1483px) {
+                        overflow-y: scroll;
+                        padding-bottom: 16px;
+                        width: 525px;
+                    }
+                    @media (max-width: 1352px) {
+                        overflow-y: scroll;
+                        padding-bottom: 16px;
+                        width: 374px;
+                    }
+                    @media (max-height: 852px) {
+                        padding: 16px;
+                        margin: -16px;
+                    }
+
                     .tarjetonCard{
                         list-style: none;
-                        display: flex;
-                        flex-direction: column;
+                        display: grid;
+                        grid-template-rows: 2fr 1fr 1fr;
                         background-color: #E3F3FC;
                         border-radius: 5px;
-                        width: max-content;
+                        width: 10vw;
                         z-index: 1;
-                        padding: 16px 12px;
+                        padding: 0px 12px;
                         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
                         position: relative;
                         cursor: pointer;
-                        gap: 8px;
+    
+                        @media (max-height: 852px) {
+                            grid-template-rows:  repeat(3, auto);
+                            gap: 2vh;
+                            padding: 12px;
+    
+                            p:nth-child(1) {
+                                margin: 0;
+                                align-self: center;
+                            }
+                
+                            p:nth-child(2){
+                                margin: 0;
+                                height: fit-content;
+                                align-self: center;
+                                width: fit-content;
+                            }
+                        }
+                        @media (max-width: 1483px) {
+                            padding-bottom: 16px;
+                            width: auto;
+                        }
+                        @media (max-width: 1352px) {
+                            padding-bottom: 16px;
+                            width: 90px;
+                            padding: 12px;
+                        }
             
                         p:nth-child(1){
                             background-color: white;
@@ -1138,7 +521,6 @@
                             font-family: "Montserrat", sans-serif;
                             font-size: 1rem;
                             font-weight: bold;
-                            margin: 0;
                         }
             
                         p:nth-child(2){
@@ -1146,8 +528,6 @@
                             font-family: "Montserrat", sans-serif;
                             font-size: 1rem;
                             font-weight: bold;
-                            width: max-content;
-                            margin: 0;
                         }
             
                         p:nth-child(3){
@@ -1155,10 +535,14 @@
                             font-family: "Montserrat", sans-serif;
                             font-size: 0.75rem;
                             font-weight: 600;
-                            width: 90px;
-                            margin: 0;
+    
+                            @media (max-width: 1685px) {
+                                padding: 0;
+                                margin: 0;
+                                width: 90px;
+                            }
                         }
-        
+    
                         .addCandidate {
                             display: flex;
                             justify-content: center;
@@ -1178,32 +562,22 @@
                                 width: 20px;
                                 height: 20px;
                             }
+    
+                            @media (max-height: 852px) {
+                                top: 12px;
+                            }
                         }
                     }
-                }
-    
-                .list::-webkit-scrollbar-track{
-                    border: 1px solid #E3F3FC;
-                    border-radius: 10px;
-                    background-color: white;
-                }
-                .list::-webkit-scrollbar{
-                    height: 8px;
-                    background-color: white;
-                }
-                .list::-webkit-scrollbar-thumb{
-                    border-radius: 10px;
-                    background-color: #003A52;
                 }
         
             }
         
             .listasCandidatos {
+        
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                height: auto;
-                width: 525px;
+                height: calc(57vh - 16px);
                 gap: 8px;
         
                 .subtitle {
@@ -1215,22 +589,28 @@
                     margin: 0;
                     align-items: center;
                     gap: 8px;
-                    width: 525px;
+                    width: 35vw;
                     background-color: white;
-                    height: 24px;
+
+                    @media (max-width: 1483px) {
+                        width: 525px;
+                    }
+                    @media (max-width: 1352px) {
+                        width: auto;
+                    }
                 }
-        
+
                 .listaCandidatos {
                     align-items: start;
                     display: grid;
                     gap: 16px;
                     grid-template-columns: repeat(2, 17.5vw);
-                    height: calc(51vh + 0.73px);
+                    height: calc(51vh - 16px);
                     justify-content: center;
                     list-style: none;
-                    margin: -5px -16px;
+                    margin: -16px;
                     overflow-y: scroll;
-                    padding: 5px 16px;
+                    padding: 16px;
                     width: 35vw;
                 }
                 .listaCandidatos::-webkit-scrollbar { 
@@ -1243,8 +623,8 @@
                     grid-template-rows: repeat(2, auto);
                     background-color: #E3F3FC;
                     border-radius: 15px;
-                    width: fit-content;
-                    height: fit-content;
+                    width: auto;
+                    height: auto;
                     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
                     position: relative;
                     padding: 12px 12px;
@@ -1290,8 +670,7 @@
                     }
                 }
             }
-        }
-    }
+        } 
 
     .addCandidate-form {
         height: 100vh;
@@ -1386,9 +765,725 @@
                 background-color: #0a5b7e;
                 box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
             }
+            
         }
     }
-}
+
+
+
+
+// .container {
+//     display: flex;
+//     height: 97vh;
+//     width: 100vw;
+
+//     //GRUPO 1 / CONFIGURACION
+
+//     .left-section {
+//         align-items: center;
+//         justify-content: start;
+//         background-color: #E3F3FC;
+//         display: flex;
+//         flex-direction: column;
+//         gap: 24px;
+//         padding: 1.5vh 0;
+//         position: relative;
+
+//         .titleContainer{
+//             display: flex; 
+//             width: fit-content;
+//             align-items: center;
+//             gap: 8px;
+
+//             #title {
+//                 color: #003A52;
+//                 font-family: "Montserrat", sans-serif;
+//                 font-size: 1.5rem;
+//                 font-weight: bold;
+//                 margin: 0;
+//             }
+//             button{
+//                 display: flex;
+//                 width: 20px;
+//                 height: 20px;
+//                 justify-content: center;
+//                 align-items: center;
+//                 padding: 0;
+//                 margin: 0 0 0 8px;
+//                 background-color: transparent;
+//                 border: none;
+//                 cursor: pointer;
+//                 svg{
+//                     width: 20px;
+//                     height: 20px;
+//                     fill: #003A52;
+//                 }
+//             }
+//         }   
+    
+//         .left-section-item {
+//             width: 280px;
+    
+//             .subtitle{
+//                 color: #003A52;
+//                 font-family: "Montserrat", sans-serif;
+//                 font-size: 1.25rem;
+//                 font-weight: bold;
+//                 margin: 0;
+//         }
+//         }
+
+//         //GRUPO 2 / NOMBRE DEL EVENTO
+//         #event-name {
+//             display: flex;
+//             flex-direction: column;
+//             gap: 8px;
+//             width: 280px;
+//             padding: 0;
+
+//             .input {
+//                 background-color: transparent;
+//                 border-color: #003A52;
+//                 border-width: 0 0 1px 0;
+//                 color: #003A52;
+//                 font-family: "Montserrat", sans-serif;
+//                 font-size: 1rem;
+//                 font-weight: 500;
+//                 padding: 8px 0;
+//             }
+//         }
+
+//         //GRUPO 2 / END
+//         //GRUPO 3 / TABLE NUMBER
+//         #table-number {
+//             display: flex;
+//             flex-direction: column;
+//             gap: 8px;
+//             padding: 0;
+//             width: 280px;
+
+//             .increase-input {
+//                 display: flex;
+//                 justify-content: space-between;
+//                 align-items: center;
+
+//                 button{
+//                     display: flex;
+//                     align-items: center;
+//                     justify-content: center;
+//                     background-color: #003a52;
+//                     border: none;
+//                     height: 40px;
+//                     width: 40px;
+                    
+//                     svg{
+//                         fill: white;
+//                         height: 24px;
+//                         width: 24px;
+//                     }
+//                 }
+
+//                 .number {
+//                     color: #003A52;
+//                     font-family: "Montserrat", sans-serif;
+//                     font-size: 1rem;
+//                     font-weight: bold;
+//                     margin: 0;
+//                 }
+//             }
+//         }
+//         //GRUPO 3 / END
+//         //GRUPO 4 / TOGGLE INFO
+//         #toggle-info {
+//             display: flex;
+//             flex-direction: column;
+//             gap: 8px;
+//             padding: 0px;
+//             width: 280px;
+
+//             .list {
+//                 display: flex;
+//                 flex-direction: column;
+//                 list-style: none;
+//                 padding: 0;
+//                 margin: 0;
+//                 gap: 8px;
+
+//                 li{
+//                     display: flex;
+//                     justify-content: space-between;
+//                 }
+
+//                 .list-item .toggle-label{
+//                     color: #003A52;
+//                     font-family: "Montserrat", sans-serif;
+//                     font-size: 1rem;
+//                     font-weight: 600;
+//                 }
+//             }
+//         }
+//         //GRUPO 4 / END
+
+//         //EDIT CANDIDATE FORM
+//         .edit-candidate-form {
+//             display: flex;
+//             flex-direction: column;
+//             background-color: white;
+//             width: 260px;
+//             padding: 10px 20px;
+//             gap: 0.5rem;
+//             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+//             border-radius: 5px;
+//             top: 241px;
+//             position: absolute;
+
+//             .candidate-info{
+//                 display: flex;
+//                 flex-direction: column;
+//                 gap: 4px;
+
+//                 img{
+//                     width: 260px;
+//                 }
+
+//                 label{
+//                     color: #003A52;
+//                     font-family: "Montserrat", sans-serif;
+//                     font-size: 1rem;
+//                     font-weight: 600;
+//                 }
+//                 #uploadInput{
+//                     display: none;
+//                 }
+//                 .uploadInputLabel{
+//                     display: flex;
+//                     background-color: #003A52;
+//                     color: white;
+//                     padding: 8px 12px;
+//                     border-radius: 4px;
+//                     justify-content: center;
+//                 }
+//                 .typeInput{
+//                     width: calc(100% - 4px);
+//                     background-color: transparent;
+//                     border-color: #003A52;
+//                     border-width: 0 0 1px 0;
+//                     color: #003A52;
+//                     font-family: "Montserrat", sans-serif;
+//                     font-size: 1rem;
+//                     font-weight: 500;
+//                     padding: 8px 0;
+//                 }
+//             }
+
+//             #saveInfo{
+//                 align-items: center;
+//                 background-clip: padding-box;
+//                 background-color: #003A52;
+//                 border: 1px solid transparent;
+//                 border-radius: .25rem;
+//                 box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+//                 box-sizing: border-box;
+//                 color: #fff;
+//                 cursor: pointer;
+//                 display: inline-flex;
+//                 font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+//                 font-size: 16px;
+//                 font-weight: 600;
+//                 justify-content: center;
+//                 line-height: 1.25;
+//                 margin: 0;
+//                 min-height: 3rem;
+//                 padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+//                 position: relative;
+//                 text-decoration: none;
+//                 transition: all 250ms;
+//                 user-select: none;
+//                 -webkit-user-select: none;
+//                 touch-action: manipulation;
+//                 vertical-align: baseline;
+//                 width: auto;
+//             }
+//             #saveInfo:hover, #saveInfo:focus{
+//                 background-color: #0a5b7e;
+//                 box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+//             }
+
+//             #closeForm{
+//                 display: flex;
+//                 justify-content: center;
+//                 align-items: center;
+//                 position: absolute;
+//                 top: 15px;
+//                 right: 25px;
+//                 fill: #eb7412;
+//                 width: 30px;
+//                 height: 30px;
+//                 background-color: white;
+//                 border: none;
+//                 border-radius: 50%;
+//                 padding: 0;
+//                 transition: all 250ms;
+            
+//                 svg {
+//                     width: 30px;
+//                     height: 30px;
+//                 }
+//             }
+//             #closeForm:hover{
+//                 display: flex;
+//                 justify-content: center;
+//                 align-items: center;
+//                 position: absolute;
+//                 top: 15px;
+//                 right: 25px;
+//                 fill: #eb5012;
+//                 width: 30px;
+//                 height: 30px;
+//                 background-color: white;
+//                 border: none;
+//                 border-radius: 50%;
+//                 padding: 0;
+//                 box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+            
+//                 svg {
+//                     width: 30px;
+//                     height: 30px;
+//                 }
+//             }
+//         }
+//         //EDIT CANDIDATE FORM | END
+//     }
+
+//     .right-section {
+//         display: flex;
+//         align-items: center;
+//         justify-content: space-between;
+//         padding: 0 15px;
+//         height: 100vh;
+//         width: calc(100vw - 316px);  
+//         background-color: white;  
+    
+//         #container-lista-votantes {
+//             display: flex;
+//             flex-direction: column;
+//             justify-content: center;
+//             width: max-content;
+//             gap: 8px;
+
+//             #subtitle {
+//                 display: flex;
+//                 color: #003A52;
+//                 font-family: "Montserrat", sans-serif;
+//                 font-size: 1.25rem;
+//                 font-weight: bold;
+//                 margin: 0;
+//                 width: inherit;
+//                 justify-self: start;
+//             }
+    
+//             #main-list {
+//                 display: flex;
+//                 justify-content: space-between;
+//                 height: 70vh;
+//                 list-style: none;
+//                 margin: 0;
+//                 padding: 0;
+//                 overflow-y: scroll;
+//                 gap: 16px;
+    
+//                 .mainListItem {
+//                     display: flex;
+//                     flex-direction: column;
+//                     width: auto;
+    
+//                     .child-list{
+//                         display: flex;
+//                         flex-direction: column;
+//                         list-style: none;
+//                         margin: 0;
+//                         padding: 0px;
+        
+//                         .list-title{
+//                             color: #003A52;
+//                             font-family: "Montserrat", sans-serif;
+//                             font-size: 1rem;
+//                             font-weight: bold;
+//                             margin: 0;
+//                             position: sticky;
+//                             top: 0px;
+//                             background-color: white;
+//                             z-index: 0;
+//                         }
+//                         .list-item{
+//                             color: #003A52;
+//                             font-family: "Montserrat", sans-serif;
+//                             font-size: 1rem;
+//                             font-weight: 400;
+//                         }
+//                     }
+//                 }
+//             }
+//             #main-list::-webkit-scrollbar { 
+//                 margin-left: 5px;
+//                 position: absolute;
+//                 width: 0;
+//             }
+//             #uploadXlsx{
+//                 display: none;
+//             }
+//             .customFileUpload{
+//                 background-color: transparent;
+//                 border-radius: 0.5rem;
+//                 border: 2px solid #003A52;
+//                 display: flex;
+//                 gap: 1rem;
+//                 justify-content: space-between;
+//                 padding: 12px 20px;
+//                 width: fit-content;
+//                 cursor: pointer;
+//                 color: #003A52;
+//                 font-family: "Montserrat", sans-serif;
+//                 font-size: 1rem;
+//                 font-weight: 400;
+//                 width: fit-content;
+//             }
+//         }
+    
+//         #container-lista-candidatos{
+//             display: flex;
+//             flex-direction: column;
+//             align-items: start;
+//             justify-content: center;
+//             width: 525px;
+//             gap: 24px;
+        
+//             .listaTarjetones{
+//                 display: flex;
+//                 flex-direction: column;
+//                 align-items: center;
+//                 height: auto;
+//                 gap: 8px;
+//                 position: relative;
+//                 width: 525px;
+//                 margin: 0;
+//                 padding: 0;
+    
+//                 .subtitle {
+//                     display: flex;
+//                     color: #003A52;
+//                     font-family: "Montserrat", sans-serif;
+//                     font-size: 1.25rem;
+//                     font-weight: bold;
+//                     margin: 0;
+//                     align-items: center;
+//                     gap: 8px;
+//                     width: 525px;
+            
+//                     span { 
+//                         color: #003A52;
+//                         font-family: "Montserrat", sans-serif;
+//                         font-size: 1rem;
+//                         font-weight: 600;
+//                         margin: 0;
+//                     }
+            
+//                     a { 
+//                         color: #003A52;
+//                         font-family: "Montserrat", sans-serif;
+//                         font-size: 1rem;
+//                         font-weight: 600;
+//                         margin: 0;
+//                     }
+//                 }
+        
+//                 .list { 
+//                     display: flex;
+//                     justify-content: start;
+//                     list-style: none;
+//                     padding: 0;
+//                     margin: 0;
+//                     padding-bottom: 8px;
+//                     margin-bottom: -8px;
+//                     width: 525px;
+//                     gap: 8px;
+//                     overflow-x: scroll;
+    
+//                     .tarjetonCard{
+//                         list-style: none;
+//                         display: flex;
+//                         flex-direction: column;
+//                         background-color: #E3F3FC;
+//                         border-radius: 5px;
+//                         width: max-content;
+//                         z-index: 1;
+//                         padding: 16px 12px;
+//                         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+//                         position: relative;
+//                         cursor: pointer;
+//                         gap: 8px;
+            
+//                         p:nth-child(1){
+//                             background-color: white;
+//                             padding: 10px 16px;
+//                             border-radius: 50%;
+//                             width: fit-content;
+//                             height: fit-content;
+//                             color: #003A52;
+//                             font-family: "Montserrat", sans-serif;
+//                             font-size: 1rem;
+//                             font-weight: bold;
+//                             margin: 0;
+//                         }
+            
+//                         p:nth-child(2){
+//                             color: #003A52;
+//                             font-family: "Montserrat", sans-serif;
+//                             font-size: 1rem;
+//                             font-weight: bold;
+//                             width: max-content;
+//                             margin: 0;
+//                         }
+            
+//                         p:nth-child(3){
+//                             color: #003A52;
+//                             font-family: "Montserrat", sans-serif;
+//                             font-size: 0.75rem;
+//                             font-weight: 600;
+//                             width: 90px;
+//                             margin: 0;
+//                         }
+        
+//                         .addCandidate {
+//                             display: flex;
+//                             justify-content: center;
+//                             align-items: center;
+//                             position: absolute;
+//                             width: 38px;
+//                             height: 39px;
+//                             padding: 0;
+//                             right: 12px;
+//                             top: 16px;
+//                             background-color: white;
+//                             border: 0;
+//                             border-radius: 10%;
+//                             fill: #003A52;
+                
+//                             svg{
+//                                 width: 20px;
+//                                 height: 20px;
+//                             }
+//                         }
+//                     }
+//                 }
+    
+//                 .list::-webkit-scrollbar-track{
+//                     border: 1px solid #E3F3FC;
+//                     border-radius: 10px;
+//                     background-color: white;
+//                 }
+//                 .list::-webkit-scrollbar{
+//                     height: 8px;
+//                     background-color: white;
+//                 }
+//                 .list::-webkit-scrollbar-thumb{
+//                     border-radius: 10px;
+//                     background-color: #003A52;
+//                 }
+        
+//             }
+        
+//             .listasCandidatos {
+//                 display: flex;
+//                 flex-direction: column;
+//                 align-items: center;
+//                 height: auto;
+//                 width: 525px;
+//                 gap: 8px;
+        
+//                 .subtitle {
+//                     display: flex;
+//                     color: #003A52;
+//                     font-family: "Montserrat", sans-serif;
+//                     font-size: 1.25rem;
+//                     font-weight: bold;
+//                     margin: 0;
+//                     align-items: center;
+//                     gap: 8px;
+//                     width: 525px;
+//                     background-color: white;
+//                     height: 24px;
+//                 }
+        
+//                 .listaCandidatos {
+//                     align-items: start;
+//                     display: grid;
+//                     gap: 16px;
+//                     grid-template-columns: repeat(2, 17.5vw);
+//                     height: calc(51vh + 0.73px);
+//                     justify-content: center;
+//                     list-style: none;
+//                     margin: -5px -16px;
+//                     overflow-y: scroll;
+//                     padding: 5px 16px;
+//                     width: 35vw;
+//                 }
+//                 .listaCandidatos::-webkit-scrollbar { 
+//                     display: none;
+//                 }
+        
+//                 .candidateCard{
+//                     list-style: none;
+//                     display: grid;
+//                     grid-template-rows: repeat(2, auto);
+//                     background-color: #E3F3FC;
+//                     border-radius: 15px;
+//                     width: fit-content;
+//                     height: fit-content;
+//                     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+//                     position: relative;
+//                     padding: 12px 12px;
+//                     padding-bottom: 0;
+//                     justify-self: center;
+        
+//                     .candidateAvatar{
+//                         width: 15vw;
+//                         border-radius: 8px;
+//                     }
+        
+//                     .candidate-text-info{
+//                         display: flex;
+//                         justify-content: space-between;
+//                         align-items: center;
+//                         color: #003A52;
+//                         font-family: "Montserrat", sans-serif;
+//                         font-size: 1rem;
+//                         font-weight: bold;
+//                     }
+        
+//                     .buttons-container{
+//                         display: flex;
+//                         position: absolute;
+//                         gap: 8px;
+//                         top: 24px;
+//                         left: 24px;
+        
+//                         button {
+//                             width: 30px;
+//                             height: 30px;
+//                             background-color: white;
+//                             border-width: 0;
+//                             border-radius: 5px;
+        
+//                             svg{
+//                                 width: 15px;
+//                                 height: 15px;
+//                                 fill: #003A52;
+//                             }
+//                         }
+        
+//                     }
+//                 }
+//             }
+//         }
+//     }
+
+//     .addCandidate-form {
+//         height: 100vh;
+//         width: 100vw;
+//         position: absolute;
+//         justify-content: center;
+//         align-items: center;
+//         background-color: rgba(60, 64, 67, 0.5);
+//         z-index: 2;  
+        
+//         .outOfDialog {
+//             width: 100vw;
+//             height: 100vh;
+//             z-index: 0;
+//             cursor: pointer;
+//         }
+    
+//         .edit-module {
+//             display: flex;
+//             flex-direction: column;
+//             gap: 1rem   ;
+//             border: 0;
+//             border-radius: 5px;
+//             padding: 20px 30px;
+//             z-index: 1;
+    
+//             .candidate-info:nth-child(1){
+//                 display: flex;
+//                 flex-direction: column;
+//                 color: #003A52;
+//                 font-family: "Montserrat", sans-serif;
+//                 font-size: 1rem;
+//                 font-weight: bold;
+    
+//                 img{
+//                     width: 320px;
+//                     height: 320px;
+//                 }
+//             }
+    
+//             .candidate-info:nth-child(2), .candidate-info:nth-child(3){
+//                 display: flex;
+//                 flex-direction: column;
+//                 color: #003A52;
+//                 font-family: "Montserrat", sans-serif;
+//                 font-size: 1rem;
+//                 font-weight: 600;
+    
+//                 input{
+//                     width: calc(100% - 4px);
+//                     background-color: transparent;
+//                     border-color: #003A52;
+//                     border-width: 0 0 1px 0;
+//                     color: #003A52;
+//                     font-family: "Montserrat", sans-serif;
+//                     font-size: 1rem;
+//                     font-weight: 400;
+//                     padding: 8px 0;
+//                 }
+//             }
+    
+//             button{
+//                 align-items: center;
+//                 background-clip: padding-box;
+//                 background-color: #003A52;
+//                 border: 1px solid transparent;
+//                 border-radius: .25rem;
+//                 box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+//                 box-sizing: border-box;
+//                 color: #fff;
+//                 cursor: pointer;
+//                 display: inline-flex;
+//                 font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+//                 font-size: 16px;
+//                 font-weight: 600;
+//                 justify-content: center;
+//                 line-height: 1.25;
+//                 margin: 0;
+//                 min-height: 3rem;
+//                 padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+//                 position: relative;
+//                 text-decoration: none;
+//                 transition: all 250ms;
+//                 user-select: none;
+//                 -webkit-user-select: none;
+//                 touch-action: manipulation;
+//                 vertical-align: baseline;
+//                 width: auto;
+//             }
+    
+//             button:hover{
+//                 background-color: #0a5b7e;
+//                 box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+//             }
+//         }
+//     }
+// }
 
 
 
