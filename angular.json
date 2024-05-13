@@ -54,7 +54,11 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [] 
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "apexcharts",
+              "ng-apexcharts"
+            ]
           },
           "configurations": {
             "production": {
