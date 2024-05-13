@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit{
       this.votantes.set(votantesData);
       this.extractUniqueGroups(votantesData);
     }
-
+    
     const remainingVotantes = localStorage.getItem('remainVotantes')
     if (remainingVotantes){
       this.votantes.set(JSON.parse(remainingVotantes))

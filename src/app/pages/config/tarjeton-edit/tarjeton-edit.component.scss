@@ -82,7 +82,33 @@ body{
               background-color: #166d92;
               transition: 0.25s ease;
             }
+          }
+        }
+
+        button:disabled {
+          padding-right                     : 10px;
+          cursor                            : pointer; 
+          cursor                            : hand;
+          border: none;
+          background-color: white;
+          border-radius: 10px;
+          
+          p{
+            padding         : 12px 24px;
+            margin: 5px 0;
             
+            font-size       : 0.9em;
+            text-transform  : uppercase;
+            font-weight     : 400 ;
+            color           : white;
+            background-color: #c0c0c0;
+            border-radius: 10px;
+            
+            &:hover{
+              background-color: #c0c0c0;
+              transition: 0.25s ease;
+              cursor: not-allowed;
+            }
           }
         }
       }

@@ -2,6 +2,7 @@ import { Component, ViewChild, signal } from "@angular/core";
 import { CommonModule, NgFor} from "@angular/common";
 import { resultados, tarjeton } from "../../models/tags.model";
 import { ChartComponent, NgApexchartsModule } from "ng-apexcharts";
+import { RouterModule } from '@angular/router';
 
 import {
   ApexNonAxisChartSeries,
@@ -19,7 +20,7 @@ export type ChartOptions = {
 @Component({
   selector: 'app-election-results',
   standalone: true,
-  imports: [NgApexchartsModule, CommonModule, NgFor],
+  imports: [NgApexchartsModule, CommonModule, NgFor, RouterModule],
   templateUrl: './election-results.component.html',
   styleUrl: './election-results.component.scss'
 })
@@ -113,5 +114,23 @@ export class ElectionResultsComponent {
         }
       ]
     };
+  }
+
+  resetResults() {
+    alert("Funciona!")
+
+     const numberOfTarjetones = this.tarjetones().length;
+     for (let i = 0; i <= numberOfTarjetones; i++) {
+         const key = `votedCandidates_${i}`;
+         localStorage.removeItem(key);
+     }
+
+     const storedVotantes = localStorage.getItem('listaVotantes');
+     if (storedVotantes) {
+       const votantesData = JSON.parse(storedVotantes);
+       const filteredJSON = JSON.stringify(votantesData);
+       localStorage.setItem("remainVotantes", filteredJSON);
+       
+     }
   }
 }

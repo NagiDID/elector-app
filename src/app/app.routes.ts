@@ -11,6 +11,11 @@ import { SuccessComponent } from './pages/success/success.component';
 
 export const routes: Routes = [
     {
+        path: '', 
+        redirectTo: '/modoAdmin', 
+        pathMatch: 'full' ,
+    },
+    {
         path: 'config',
         component: ConfigComponent,
     },
@@ -19,8 +24,8 @@ export const routes: Routes = [
         component: TarjetonEditComponent,
     },
     {
-        path:'modoAdmin',
-        component: AdminScreenComponent,
+        path: 'modoAdmin', 
+        component: AdminScreenComponent 
     },
     {
         path:'registro',

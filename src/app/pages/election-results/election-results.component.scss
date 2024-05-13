@@ -38,7 +38,7 @@
             align-items: center;
 
             .resultsOf {
-
+                
                 border-right: 2px solid #003A52;
                 padding-right: 40px;
         
@@ -49,6 +49,7 @@
                     gap: 8px;
         
                     .list .liButton {
+                        cursor: pointer;
                         display: flex;
                         justify-content: center;
                         align-items: center;
@@ -74,5 +75,30 @@
                 margin: 0;
                 padding: 0;
             }  
+        }
+
+        .actionButtons {
+            display: flex;
+            gap: 8px;
+
+            button {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 16px;
+                border: none;
+                border-radius: 5px;
+                background-color: rgb(254, 176, 25);
+                color: #151515;
+                font-family: "Montserrat", sans-serif;
+                font-size: 1rem;
+                font-weight: 600;
+
+                svg{
+                    width: 30px;
+                    height: 30px;
+                }
+            }
         }
 }

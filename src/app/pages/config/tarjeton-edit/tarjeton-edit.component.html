@@ -8,7 +8,7 @@
     <section class="form-section">
       <input (change)="addName($event)" class="newName" type="text" placeholder="Nombre del tarjetón" id="nameInput"
         required>
-      <button type="submit" (click)="addTarjeton($event)">
+      <button type="submit" (click)="addTarjeton($event)" [disabled]="tarjetones().length >= 5">
         <p>Agregar tarjetón</p>
       </button>
     </section>
